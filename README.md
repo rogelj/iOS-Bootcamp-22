@@ -1,4 +1,4 @@
-# iOS-Bootcamp-22
+# iOS Bootcamp 22
 
 This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp cohort for Aug-Nov 2022. 
 
