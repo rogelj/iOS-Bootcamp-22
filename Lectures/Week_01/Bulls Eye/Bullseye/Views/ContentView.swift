@@ -84,10 +84,10 @@ struct HitMeButton: View {
             }
         )
         .foregroundColor(Color.white)
-        .cornerRadius(21.0)
+        .cornerRadius(Constants.General.roudedRectCornerRadius)
         .overlay(
-            RoundedRectangle(cornerRadius: 21.0)
-                .strokeBorder(Color.white, lineWidth: 2.0, antialiased: true)
+            RoundedRectangle(cornerRadius: Constants.General.roudedRectCornerRadius)
+                .strokeBorder(Color.white, lineWidth: Constants.General.strokeWidth, antialiased: true)
         )
 // == REMOVING THE DEFAULT ALERT STYLE
 //        .alert("Hello there!", isPresented: $alertIsVisible, actions: {
