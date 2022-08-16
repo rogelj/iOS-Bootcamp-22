@@ -21,12 +21,15 @@ struct ContentView: View {
                     .padding(.bottom, alertIsVisible ? 0 : 100)
                 if alertIsVisible {
                     PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
                 } else {
                     HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                        .transition(.scale)
                 }
             }
             if !alertIsVisible {
                 SliderView(sliderValue: $sliderValue)
+                    .transition(.scale)
             }
         }
     }
@@ -69,7 +72,9 @@ struct HitMeButton: View {
 //        let roundedValue = Int(sliderValue.rounded())
         
         Button("Hit me".uppercased()) {
-            alertIsVisible = true
+            withAnimation {
+                alertIsVisible = true
+            }
         }
         .padding(20.00)
         .background(
@@ -78,7 +83,6 @@ struct HitMeButton: View {
                 LinearGradient(gradient: Gradient(colors: [Color.white.opacity(0.3), Color.clear]), startPoint: .top, endPoint: .bottom)
             }
         )
-
         .foregroundColor(Color.white)
         .cornerRadius(21.0)
         .overlay(
