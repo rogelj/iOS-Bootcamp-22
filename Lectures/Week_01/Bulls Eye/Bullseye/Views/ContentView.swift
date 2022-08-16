@@ -17,12 +17,17 @@ struct ContentView: View {
         ZStack {
             BackgroundView(game: $game)
             VStack {
-                
                 InstructionsView(game: $game)
-                    .padding(.bottom, 100)
-                HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                    .padding(.bottom, alertIsVisible ? 0 : 100)
+                if alertIsVisible {
+                    PointsView(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                } else {
+                    HitMeButton(alertIsVisible: $alertIsVisible, sliderValue: $sliderValue, game: $game)
+                }
             }
-            SliderView(sliderValue: $sliderValue)
+            if !alertIsVisible {
+                SliderView(sliderValue: $sliderValue)
+            }
         }
     }
 }
@@ -60,7 +65,8 @@ struct HitMeButton: View {
     @Binding var game: Game
     
     var body: some View {
-        let roundedValue = Int(sliderValue.rounded())
+// NEEDED BY THE DEFAULT ALERT
+//        let roundedValue = Int(sliderValue.rounded())
         
         Button("Hit me".uppercased()) {
             alertIsVisible = true
@@ -79,14 +85,15 @@ struct HitMeButton: View {
             RoundedRectangle(cornerRadius: 21.0)
                 .strokeBorder(Color.white, lineWidth: 2.0, antialiased: true)
         )
-        .alert("Hello there!", isPresented: $alertIsVisible, actions: {
-            let points = game.points(sliderValue: roundedValue)
-            Button("Awesome!") {
-                game.startNewRound(points: points)
-            }
-        }, message: {
-            Text("The slider's value is \(roundedValue).\n" + "You score \(game.points(sliderValue: roundedValue)) points this round.")
-        })
+// == REMOVING THE DEFAULT ALERT STYLE
+//        .alert("Hello there!", isPresented: $alertIsVisible, actions: {
+//            let points = game.points(sliderValue: roundedValue)
+//            Button("Awesome!") {
+//                game.startNewRound(points: points)
+//            }
+//        }, message: {
+//            Text("The slider's value is \(roundedValue).\n" + "You score \(game.points(sliderValue: roundedValue)) points this round.")
+//        })
         .bold()
         .font(.title3)
     }
