@@ -17,10 +17,11 @@ struct BackgroundView: View {
             BottomView(game: $game)
         }
         .padding()
-        .background(
-            Color("BackgroundColor")
-                .edgesIgnoringSafeArea(.all)
-        )
+//        .background(
+//            Color("BackgroundColor")
+//                .edgesIgnoringSafeArea(.all)
+//        )
+        .background(RingsView())
     }
 }
 
@@ -60,6 +61,21 @@ struct BottomView: View {
             NumberView(title: "Score", text: String(game.score))
             Spacer()
             NumberView(title: "Round", text: String(game.round))
+        }
+    }
+}
+
+struct RingsView: View {
+    var body: some View {
+        ZStack {
+            Color("BackgroundColor")
+                .edgesIgnoringSafeArea(.all)
+            ForEach(1..<6) { ring in
+                let size = CGFloat(ring * 100)
+                Circle()
+                    .stroke(lineWidth: 20.0)
+                    .frame(width: size, height: size)
+            }
         }
     }
 }
