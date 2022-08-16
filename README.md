@@ -9,4 +9,5 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 ## Lectures
 - [Week 01](./Lectures/Week 01)
+- Other [links](https://jrogel.com)
 
