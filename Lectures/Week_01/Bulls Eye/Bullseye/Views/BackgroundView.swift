@@ -38,7 +38,7 @@ struct TopView: View {
             }) {
                 RoundedImageViewFilled(systemName: "list.dash")
             }.sheet(isPresented: $leaderboardIsShowing, onDismiss: {}, content: {
-                LeaderBoardView(leaderboardIsShowing: $leaderboardIsShowing)
+                LeaderBoardView(leaderboardIsShowing: $leaderboardIsShowing, game: $game)
             })
         }
     }

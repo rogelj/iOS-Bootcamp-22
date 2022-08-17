@@ -9,6 +9,7 @@ import SwiftUI
 
 struct LeaderBoardView: View {
     @Binding var leaderboardIsShowing: Bool
+    @Binding var game: Game
     
     var body: some View {
         ZStack {
@@ -17,7 +18,14 @@ struct LeaderBoardView: View {
             VStack(spacing: 10) {
                 HeaderView(leaderboardIsShowing: $leaderboardIsShowing)
                 LabelView()
-                RowView(index: 1, score: 10, date: Date())
+                ScrollView {
+                    VStack(spacing: 10) {
+                        ForEach(game.leaderboardEntries.indices, id: \.self) {
+                            i in let leaderboardEntry = game.leaderboardEntries[i]
+                            RowView(index: i+1, score: leaderboardEntry.score, date: leaderboardEntry.date)
+                        }
+                    }
+                }
             }
         }
     }
@@ -82,6 +90,7 @@ struct HeaderView: View {
                     BigBoldText(text: "Leaderboard")
                 }
             }
+            .padding(.top)
             HStack {
                 Spacer()
                 Button(action: {
@@ -97,14 +106,15 @@ struct HeaderView: View {
 
 struct LeaderBoardView_Previews: PreviewProvider {
     static private var leaderboardIsShowing = Binding.constant(false)
+    static private var game = Binding.constant(Game(loadTestData: true))
     
     static var previews: some View {
-        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing)
-        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing)
+        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing, game: game)
+        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing, game: game)
             .preferredColorScheme(.dark)
-        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing)
+        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing, game: game)
             .previewInterfaceOrientation(.landscapeLeft)
-        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing)
+        LeaderBoardView(leaderboardIsShowing: leaderboardIsShowing, game: game)
             .previewInterfaceOrientation(.landscapeLeft)
             .preferredColorScheme(.dark)
     }
