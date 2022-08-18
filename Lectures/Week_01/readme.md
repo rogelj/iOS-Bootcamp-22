@@ -39,35 +39,6 @@ An accuracy game where the main aim is to put the bull’s eye, which is on a sl
 </table>
 </body>
 </html>
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Title of the document</title>
-    <style>
-      table {
-        border: none;
-      }
-      td,
-      th {
-        border: none;
-      }
-    </style>
-  </head>
-  <body>
-    <table>
-      <tr>
-        <th>Person</th>
-        <th>Age</th>
-      </tr>
-      <tr>
-        <td>Ann</td>
-        <td>19</td>
-      </tr>
-      <tr>
-        <td>Susie</td>
-        <td>22</td>
-      </tr>
-    </table>
-  </body>
-</html>
 
+
+![alt](readme.assets/BullsEye1.png) | ![alt](readme.assets/BullsEye2.png)
