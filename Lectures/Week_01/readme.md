@@ -9,4 +9,6 @@
 
 An accuracy game where the main aim is to put the bull’s eye, which is on a slider that goes from 1 to 100, as close to a randomly chosen target value as you can.
 
-![alt](readme.assets/BullsEye1.png) | ![alt](readme.assets/BullsEye2.png)
+|![alt](readme.assets/BullsEye1.png)|
+![alt](readme.assets/BullsEye2.png)|
+
