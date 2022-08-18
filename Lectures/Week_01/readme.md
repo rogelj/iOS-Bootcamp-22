@@ -4,3 +4,11 @@
 - [x]  [Your First iOS & SwiftUI App: Polishing the App](https://www.raywenderlich.com/28797859-your-first-ios-swiftui-app-polishing-the-app) video course
 - [x]  [Your First iOS & SwiftUI App: Designing the App](https://www.raywenderlich.com/17740710-your-first-ios-and-swiftui-app-designing-the-app-optional) video course
 - [x]  [Beginning Git](https://www.raywenderlich.com/4418-beginning-git) video course
+
+## Bull's Eye
+
+An accuracy game where the main aim is to put the bull’s eye, which is on a slider that goes from 1 to 100, as close to a randomly chosen target value as you can.
+
+<img src="readme.assets/BullsEye1.png" alt="BullsEye1" style="zoom:30%;" />
+
+<img src="readme.assets/BullsEye2.png" alt="BullsEye2" style="zoom:30%;" />
