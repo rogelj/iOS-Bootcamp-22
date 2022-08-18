@@ -9,12 +9,12 @@
 
 An accuracy game where the main aim is to put the bull’s eye, which is on a slider that goes from 1 to 100, as close to a randomly chosen target value as you can.
 
-<div class="row">   
-  <div class="column">     
+<tr>   
+  <td>     
     <img src="readme.assets/BullsEye1.png" alt="BullsEye1" style="width:50%">   
-  </div>   
-  <div class="column">
+  </td>   
+  <td class="column">
     <img src="readme.assets/BullsEye2.png" alt="BullsEye2" style="width:50%">   
-  </div>    
-</div>
+  </td>    
+</tr>
 
