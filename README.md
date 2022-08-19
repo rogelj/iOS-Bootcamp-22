@@ -8,13 +8,9 @@
 
 This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp cohort for Aug-Nov 2022. 
 
-## Projects
 
-- Week 01
-
-
-## Lectures
-- [Week 01](Lectures/Week_01)
+## Content
+- [Week 01](Week_01)
 
   
 
