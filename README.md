@@ -10,7 +10,7 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 
 ## Content
-- [Week 01](Week_01)
+- [Week 01](Week_01) - First iOS and SwiftUI App
 
   
 

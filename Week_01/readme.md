@@ -1,4 +1,6 @@
-# Week 1
+# Week 1 
+
+## First iOS and SwiftUI App
 
 - [x]   [Your First iOS & SwiftUI App: An App From Scratch](https://www.raywenderlich.com/28797163-your-first-ios-swiftui-app-an-app-from-scratch) video course
 - [x]  [Your First iOS & SwiftUI App: Polishing the App](https://www.raywenderlich.com/28797859-your-first-ios-swiftui-app-polishing-the-app) video course
