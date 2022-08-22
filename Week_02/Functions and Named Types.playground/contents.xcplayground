@@ -5,5 +5,7 @@
         <page name='Introduction to Functions'/>
         <page name='Functions and Returns'/>
         <page name='Challenge - Functions'/>
+        <page name='Structures'/>
+        <page name='Challenge - Structures'/>
     </pages>
 </playground>
