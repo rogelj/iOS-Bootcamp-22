@@ -8,5 +8,7 @@
         <page name='Challenge - For Loops'/>
         <page name='Iterating Collections'/>
         <page name='Challenge - Iterating Collections'/>
+        <page name='Nested Loops &amp; Early Exit'/>
+        <page name='Challenge - Nested Loops'/>
     </pages>
 </playground>
