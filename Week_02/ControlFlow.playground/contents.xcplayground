@@ -6,5 +6,7 @@
         <page name='Challenge While Loops'/>
         <page name='For Loops'/>
         <page name='Challenge - For Loops'/>
+        <page name='Iterating Collections'/>
+        <page name='Challenge - Iterating Collections'/>
     </pages>
 </playground>
