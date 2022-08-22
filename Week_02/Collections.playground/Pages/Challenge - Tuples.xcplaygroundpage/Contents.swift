@@ -3,7 +3,7 @@
 /*:
  ### TUPLES
  
- Declare a constant tuple named specialDate that contains three Int values followed by a String. Use this to represent a date (month, day, year) followed by a word you might associate with that day.
+ Declare a constant tuple named `specialDate` that contains three `Int` values followed by a `String`. Use this to represent a date (month, day, year) followed by a word you might associate with that day.
  */
 
 // TODO: Write solution here

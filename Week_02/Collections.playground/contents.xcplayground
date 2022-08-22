@@ -3,6 +3,8 @@
     <pages>
         <page name='Introduction'/>
         <page name='Tuples'/>
-        <page name='Challenge'/>
+        <page name='Challenge - Tuples'/>
+        <page name='Arrays'/>
+        <page name='Challenge - Arrays'/>
     </pages>
 </playground>
