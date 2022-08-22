@@ -7,5 +7,7 @@
         <page name='Challenge - Functions'/>
         <page name='Structures'/>
         <page name='Challenge - Structures'/>
+        <page name='Classes'/>
+        <page name='Challenge - Classes'/>
     </pages>
 </playground>
