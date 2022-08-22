@@ -5,5 +5,7 @@
         <page name='Creating and Populating Dictionaries'/>
         <page name='Accessing and Working with Dictionaries'/>
         <page name='Challenge - Dictionaries'/>
+        <page name='Sets'/>
+        <page name='Challenge - Sets'/>
     </pages>
 </playground>
