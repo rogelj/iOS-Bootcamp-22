@@ -7,5 +7,7 @@
         <page name='Challenge - Booleans &amp; Comparisons'/>
         <page name='Logical Operators'/>
         <page name='Challenge - Logical Operators'/>
+        <page name='Optionals'/>
+        <page name='Challenge - Optionals'/>
     </pages>
 </playground>
