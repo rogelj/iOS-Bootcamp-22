@@ -18,5 +18,14 @@ let studentsFailed = studentGrade < passingGrade
 let chrisGrade = 49
 let samGrade = 99
 
+samGrade == chrisGrade
 
-//: [Next](@next)
+samGrade != chrisGrade
+
+let catName = "Ozma"
+let dogName = "Mango"
+
+catName == dogName
+catName >= dogName
+
+//: [Next: Challenge: Booleans and Comparisons](@next)
