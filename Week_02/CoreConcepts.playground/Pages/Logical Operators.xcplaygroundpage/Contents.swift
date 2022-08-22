@@ -31,4 +31,22 @@ let samIsMeritStudent = samHasPerfectAttendance && samGrade > meritAwardGrade
 let chrisHasPerfectAttendance = true
 let chrisIsMeritStudent = chrisHasPerfectAttendance && chrisGrade > meritAwardGrade
 
+if chrisIsMeritStudent {
+    print("Congratulations!")
+} else {
+    print("Keep studying!")
+}
+
+var betterStudent: String
+
+if samGrade > chrisGrade {
+    betterStudent = "Sam"
+} else {
+    betterStudent = "Chris"
+}
+
+// Ternary conditional operator
+// expression ? true-value : false-value
+
+betterStudent = samGrade > chrisGrade ? "Sam" : "Chris"
 //: [Next](@next)
