@@ -4,9 +4,9 @@
 
 - [x] [**Programming in Swift: Fundamentals**](https://www.raywenderlich.com/5539282-programming-in-swift-fundamentals) video course (4h 33m)
 
-- [ ] (Optional)[ I’m an Idiot by Richard Turton](https://www.raywenderlich.com/498-rwdevcon-2017-inspiration-talk-i-m-an-idiot-by-richard-turton) video talk (22 mins)
+- [x] (Optional)[ I’m an Idiot by Richard Turton](https://www.raywenderlich.com/498-rwdevcon-2017-inspiration-talk-i-m-an-idiot-by-richard-turton) video talk (22 mins)
 
-- [ ] (Optional) extra learning: resources from the Swift Book
+- [x] (Optional) extra learning: resources from the Swift Book
 
   - [The Basics](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html)
   - [Basic Operators](https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html)
