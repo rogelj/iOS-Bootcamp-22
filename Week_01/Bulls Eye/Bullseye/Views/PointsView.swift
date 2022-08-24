@@ -29,12 +29,12 @@ struct PointsView: View {
                 ButtonText(text: "Start New Round")
             }
         }
-            .padding()
-            .frame(maxWidth: 300)
-            .background(Color("BackgroundColor"))
-            .cornerRadius(Constants.General.roudedRectCornerRadius)
-            .shadow(radius: 10, x: 5, y: 5)
-            .transition(.scale)
+        .padding()
+        .frame(maxWidth: 300)
+        .background(Color("BackgroundColor"))
+        .cornerRadius(Constants.General.roudedRectCornerRadius)
+        .shadow(radius: 10, x: 5, y: 5)
+        .transition(.scale)
     }
 }
 
