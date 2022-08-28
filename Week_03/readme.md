@@ -37,3 +37,21 @@ Optional: for students who want to learn more about the Swift behind Swift
   - Overloads should be related
   - Prefer using default values to overloading
   - Avoid overloads that only differ in return type
+
+## Advanced Parameters
+
+- For arguments that need to be changed by the function, use the `inout` keyword. The argument is then treated as a local variable. To be able to call a function with an inout parameter, we need to call the parameter in question with an ampersand:
+
+  ```swift
+  // --------------------------------------
+  var count = 0
+  // --------------------------------------
+  
+  func incrementAndPrint(_ value: inout Int) {
+    value += 1
+    print(value)
+  }
+  incrementAndPrint(&count)
+  ```
+
+  

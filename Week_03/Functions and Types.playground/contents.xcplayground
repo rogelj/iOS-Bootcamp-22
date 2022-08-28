@@ -5,5 +5,8 @@
         <page name='Review of Functions'/>
         <page name='Challenge - Functions'/>
         <page name='Overloading'/>
+        <page name='Advanced Parameters'/>
+        <page name='Challenge - Overloads &amp; Parameters'/>
+        <page name='Functions as Parameters'/>
     </pages>
 </playground>
