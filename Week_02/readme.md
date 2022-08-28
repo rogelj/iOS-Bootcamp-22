@@ -1,6 +1,6 @@
 # Week 2
 
-## First iOS and SwiftUI App
+## Swift Fundamentals
 
 - [x] [**Programming in Swift: Fundamentals**](https://www.raywenderlich.com/5539282-programming-in-swift-fundamentals) video course (4h 33m)
 
