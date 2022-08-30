@@ -99,4 +99,6 @@ Optional: for students who want to learn more about the Swift behind Swift
   )
   ```
 
-  
+- `contactMap` - Only returns collection elements that are not `nil`
+
+- `flatMap` - Lets us handle multidimensional arrays. It expects an array as input

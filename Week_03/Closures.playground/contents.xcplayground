@@ -7,5 +7,7 @@
         <page name='Closure Syntax'/>
         <page name='Challenge - Closure Syntax'/>
         <page name='ForEach and Map'/>
+        <page name='compactMap and flatMap'/>
+        <page name='Challenge - Closures and Collections'/>
     </pages>
 </playground>
