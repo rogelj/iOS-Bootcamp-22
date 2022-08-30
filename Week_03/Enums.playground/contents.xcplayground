@@ -5,5 +5,8 @@
         <page name='Enumerations'/>
         <page name='Challenge - enums'/>
         <page name='Switch Statements'/>
+        <page name='More Switch Statements'/>
+        <page name='Challenge - Switch statements'/>
+        <page name='Associated values'/>
     </pages>
 </playground>

@@ -116,6 +116,10 @@ Extra
 - `mapValues` - returns a new dictionary containing the keys of this dictionary with the values transformed by the given closure
 - `compactMapValues` - returns a new dictionary containing only key-value pairs that have non-nil values
 
+# Enums
+
+- Note that enums can have either raw values or associated values but not both. 
+
 **More About Algorithms**
 
 - Course: [“Data Structures & Algorithms in Swift”](https://www.raywenderlich.com/977854-data-structures-algorithms-in-swift)
