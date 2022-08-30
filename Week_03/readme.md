@@ -85,4 +85,18 @@ Optional: for students who want to learn more about the Swift behind Swift
   sort
   ```
 
+- Closure syntax:
+
+  ```swift
+  Button { modalIsPresented = true }
+  label: { 
+  	Image(systemName: "plus")
+  }
+  
+  Button(
+    action: { modalIsPresented = true },
+  	label: { Image(systemName: "plus")}
+  )
+  ```
+
   
