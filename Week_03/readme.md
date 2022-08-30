@@ -99,7 +99,11 @@ Optional: for students who want to learn more about the Swift behind Swift
   )
   ```
 
-- `contactMap` - Only returns collection elements that are not `nil`
+- `forEach` - Always runs on all elements, you can pass functions and chain with other methods. Notice that a for loop can use `break` and `continue` and `where` clauses. These do not work with `forEach`
+
+- `map` returns a collection
+
+- `compactMap` - Only returns collection elements that are not `nil`
 
 - `flatMap` - Lets us handle multidimensional arrays. It expects an array as input
 
@@ -107,8 +111,13 @@ Optional: for students who want to learn more about the Swift behind Swift
 
 - `reduce` - Takes two arguments: an initial value and a closure 
 
+Extra
+
+- `mapValues` - returns a new dictionary containing the keys of this dictionary with the values transformed by the given closure
+- `compactMapValues` - returns a new dictionary containing only key-value pairs that have non-nil values
+
 **More About Algorithms**
 
-- Course: “Data Structures & Algorithms in Swift” (https://www.raywenderlich.com/977854-data-structures-algorithms-in-swift)
-- Book: “Data Structures & Algorithms in Swift” (https://store.raywenderlich.com/products/data-structures-and-algorithms-in-swift)
-- “Swift Algorithm Club” (https://github.com/raywenderlich/swift-algorithm-club)
+- Course: [“Data Structures & Algorithms in Swift”](https://www.raywenderlich.com/977854-data-structures-algorithms-in-swift)
+- Book: [“Data Structures & Algorithms in Swift”](https://store.raywenderlich.com/products/data-structures-and-algorithms-in-swift)
+- [“Swift Algorithm Club”](https://github.com/raywenderlich/swift-algorithm-club)
