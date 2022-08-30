@@ -9,5 +9,7 @@
         <page name='ForEach and Map'/>
         <page name='compactMap and flatMap'/>
         <page name='Challenge - Closures and Collections'/>
+        <page name='Filter, Reduce and Sort'/>
+        <page name='Challenge - filter, reduce and sort'/>
     </pages>
 </playground>

@@ -102,3 +102,13 @@ Optional: for students who want to learn more about the Swift behind Swift
 - `contactMap` - Only returns collection elements that are not `nil`
 
 - `flatMap` - Lets us handle multidimensional arrays. It expects an array as input
+
+- `filter` - Filters out the elements that meet the required conditions
+
+- `reduce` - Takes two arguments: an initial value and a closure 
+
+**More About Algorithms**
+
+- Course: “Data Structures & Algorithms in Swift” (https://www.raywenderlich.com/977854-data-structures-algorithms-in-swift)
+- Book: “Data Structures & Algorithms in Swift” (https://store.raywenderlich.com/products/data-structures-and-algorithms-in-swift)
+- “Swift Algorithm Club” (https://github.com/raywenderlich/swift-algorithm-club)
