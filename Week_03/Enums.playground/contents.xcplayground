@@ -3,5 +3,7 @@
     <pages>
         <page name='Introduction'/>
         <page name='Enumerations'/>
+        <page name='Challenge - enums'/>
+        <page name='Switch Statements'/>
     </pages>
 </playground>
