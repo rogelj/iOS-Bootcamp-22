@@ -54,4 +54,35 @@ Optional: for students who want to learn more about the Swift behind Swift
   incrementAndPrint(&count)
   ```
 
+
+# Closures
+
+- Block of code that do something
+
+  - Technically functions are a type of closure
+
+  | Closures                              |                     | Functions                                      |
+  | ------------------------------------- | ------------------- | ---------------------------------------------- |
+  | No                                    | Names?              | Yes                                            |
+  | No                                    | Argument labels?    | Yes                                            |
+  | No                                    | Default parameters? | Yes                                            |
+  | Yes                                   | Write Inline?       | No                                             |
+  | { (a: Int, b: Int) -> Int in  a * b } | Different syntax    | func multiply(a: Int, b: Int) -> Int { a * b } |
+
+  Different Syntax
+
+  ![Closure Syntax](readme_images/Closure%20Syntax.png)
+
+- Closures & Collections
+
+  ```swift
+  forEach
+  map
+  compactMap
+  flatMap
+  filter
+  reduce
+  sort
+  ```
+
   
