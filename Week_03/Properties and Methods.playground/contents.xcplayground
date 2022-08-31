@@ -7,5 +7,6 @@
         <page name='Lazy Properties'/>
         <page name='Challenge - Properties'/>
         <page name='Methods'/>
+        <page name='Challenge - Methods'/>
     </pages>
 </playground>
