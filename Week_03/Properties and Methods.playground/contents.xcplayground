@@ -6,5 +6,6 @@
         <page name='Computed Properties'/>
         <page name='Lazy Properties'/>
         <page name='Challenge - Properties'/>
+        <page name='Methods'/>
     </pages>
 </playground>
