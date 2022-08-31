@@ -3,5 +3,7 @@
     <pages>
         <page name='Introduction'/>
         <page name='Properties and Methods'/>
+        <page name='Computed Properties'/>
+        <page name='Lazy Properties'/>
     </pages>
 </playground>
