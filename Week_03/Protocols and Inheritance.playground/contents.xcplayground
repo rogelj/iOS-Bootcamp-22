@@ -4,5 +4,6 @@
         <page name='Introduction'/>
         <page name='Inheritance'/>
         <page name='Challenge - Inheritance'/>
+        <page name='Initialisers'/>
     </pages>
 </playground>
