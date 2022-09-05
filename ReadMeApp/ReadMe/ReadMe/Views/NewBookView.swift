@@ -12,12 +12,21 @@ struct NewBookView: View {
     @State var image: Image? = nil
     
     var body: some View {
-        VStack(spacing: 24) {
-            TextField("Title", text: $book.title)
-            TextField("Author", text: $book.author)
-            ReviewAndImageStack(book: book, image: $image)
+        NavigationView {
+            VStack(spacing: 24) {
+                TextField("Title", text: $book.title)
+                TextField("Author", text: $book.author)
+                ReviewAndImageStack(book: book, image: $image)
+            }
+            .padding()
+            .toolbar {
+                ToolbarItem(placement: .status) {
+                    Button("Add to Library") {
+                        
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 

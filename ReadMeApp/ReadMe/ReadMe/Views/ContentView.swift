@@ -31,7 +31,7 @@ struct ContentView: View {
                 .sheet(isPresented: $addingNewBook, content: NewBookView.init)
                 
                 ForEach(library.sortedBooks) { book in
-                    BookRow(book: book, image: $library.images[book])
+                    BookRow(book: book, image: $library.Images[book])
                 }
             }
             .navigationTitle("My Library")
