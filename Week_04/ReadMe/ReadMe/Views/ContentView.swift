@@ -9,10 +9,23 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        BookRow(book: .init())
+    }
+}
+
+struct BookRow: View {
+    let book: Book
+    
+    var body: some View {
         HStack {
-            Book.Image(title: Book().title)
-            Text("Hello, world!")
-                .font(.title2)
+            Book.Image(title: book.title)
+            VStack(alignment: .leading) {
+                Text(book.title)
+                    .font(.title2)
+                Text(book.author)
+                    .font(.title3)
+                    .foregroundColor(.secondary)
+            }
             
         }
         .padding()
@@ -24,5 +37,6 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 
 
