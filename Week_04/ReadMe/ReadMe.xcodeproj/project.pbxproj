@@ -13,6 +13,7 @@
 		46CCB00128C62B21001C4D27 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46CCB00028C62B21001C4D27 /* Preview Assets.xcassets */; };
 		46CCB00828C62C75001C4D27 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB00728C62C75001C4D27 /* Book.swift */; };
 		46CCB00B28C62D51001C4D27 /* Book Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB00A28C62D51001C4D27 /* Book Views.swift */; };
+		46CCB00D28C637B3001C4D27 /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CCB00C28C637B3001C4D27 /* Library.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		46CCB00028C62B21001C4D27 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		46CCB00728C62C75001C4D27 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		46CCB00A28C62D51001C4D27 /* Book Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Book Views.swift"; sourceTree = "<group>"; };
+		46CCB00C28C637B3001C4D27 /* Library.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				46CCAFF928C62B20001C4D27 /* ReadMeApp.swift */,
-				46CCB00728C62C75001C4D27 /* Book.swift */,
+				46CCB00C28C637B3001C4D27 /* Library.swift */,
 				46CCB00928C62CEA001C4D27 /* Views */,
+				46CCB00728C62C75001C4D27 /* Book.swift */,
 				46CCAFFD28C62B21001C4D27 /* Assets.xcassets */,
 				46CCAFFF28C62B21001C4D27 /* Preview Content */,
 			);
@@ -153,6 +156,7 @@
 			files = (
 				46CCB00B28C62D51001C4D27 /* Book Views.swift in Sources */,
 				46CCAFFC28C62B20001C4D27 /* ContentView.swift in Sources */,
+				46CCB00D28C637B3001C4D27 /* Library.swift in Sources */,
 				46CCAFFA28C62B20001C4D27 /* ReadMeApp.swift in Sources */,
 				46CCB00828C62C75001C4D27 /* Book.swift in Sources */,
 			);
