@@ -9,8 +9,13 @@ import SwiftUI
 
 extension Book {
     struct Image: View {
+        let title: String
+        
         var body: some View {
-            SwiftUI.Image(systemName: "book")
+            let symbol = SwiftUI.Image(title: title) ?? .init(systemName: "book")
+//
+            symbol
+//            SwiftUI.Image(systemName: "book")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 80)
@@ -20,8 +25,22 @@ extension Book {
     }
 }
 
+extension Image {
+    init?(title: String) {
+        guard let character = title.first, case let symbolName = "\(character.lowercased()).square", UIImage(systemName: symbolName) != nil else {
+            return nil
+        }
+        
+        self.init(systemName: symbolName)
+    }
+}
+
 struct Book_Previews: PreviewProvider {
     static var previews: some View {
-        Book.Image()
+        VStack {
+            Book.Image(title: Book().title)
+            Book.Image(title: "{")
+            Book.Image(title: "")
+        }
     }
 }

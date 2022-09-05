@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         HStack {
-            Book.Image()
+            Book.Image(title: Book().title)
             Text("Hello, world!")
                 .font(.title2)
             
