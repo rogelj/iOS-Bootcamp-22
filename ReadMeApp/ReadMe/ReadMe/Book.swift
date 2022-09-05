@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 class Book: ObservableObject {
-    let title: String
-    let author: String
+    @Published var title: String
+    @Published var author: String
     @Published var microReview: String
     @Published var readMe: Bool
     

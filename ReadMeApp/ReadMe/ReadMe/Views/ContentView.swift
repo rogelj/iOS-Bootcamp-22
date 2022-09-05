@@ -8,12 +8,31 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var addingNewBook = false
     @State var library = Library()
     
     var body: some View {
         NavigationView {
-            List(library.sortedBooks) { book in
-                BookRow(book: book, image: $library.images[book])
+            List {
+                Button {
+                    addingNewBook = true
+                } label: {
+                    Spacer()
+                    VStack(spacing: 6) {
+                        Image(systemName: "book.circle")
+                            .font(.system(size: 60))
+                        Text("Add New Book")
+                            .font(.title2)
+                    }
+                    Spacer()
+                }
+                .buttonStyle(.borderless)
+                .padding(.vertical, 8)
+                .sheet(isPresented: $addingNewBook, content: NewBookView.init)
+                
+                ForEach(library.sortedBooks) { book in
+                    BookRow(book: book, image: $library.images[book])
+                }
             }
             .navigationTitle("My Library")
         }
