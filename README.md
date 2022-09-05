@@ -11,8 +11,12 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 ## Content
 - [Week 01](Week_01) - First iOS and SwiftUI App
+
 - [Week 02](Week_02) - Swift Fundamentals
+
 - [Week 03](Week_03) - Functions and Types
+
+- [Week 04](Week_04) - Your second iOS and SwiftUI App
 
   
 
