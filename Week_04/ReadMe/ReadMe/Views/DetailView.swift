@@ -36,5 +36,6 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(book: .init(), image: .constant(nil))
+            .previewedAllColorsSchemes
     }
 }
