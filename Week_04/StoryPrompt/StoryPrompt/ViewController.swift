@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class ViewController: UIViewController {
     
@@ -14,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var verbTextField: UITextField!
     @IBOutlet weak var numberSlider: UISlider!
     @IBOutlet weak var numberLabel: UILabel!
+    @IBOutlet weak var storyPromptImageView: UIImageView!
 
     let storyPrompt = StoryPromptEntry()
     
@@ -43,7 +45,9 @@ class ViewController: UIViewController {
         storyPrompt.adjective = "smelly"
         storyPrompt.verb = "burp"
         storyPrompt.number = Int(numberSlider.value)
-        
+        storyPromptImageView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeImage))
+        storyPromptImageView.addGestureRecognizer(gestureRecognizer)
     }
     
     func updateStoryPrompt() {
@@ -52,6 +56,14 @@ class ViewController: UIViewController {
         storyPrompt.verb = verbTextField.text ?? ""
     }
     
+    @objc func changeImage() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        let controller = PHPickerViewController(configuration: configuration)
+        controller.delegate = self
+        present(controller, animated: true)
+    }
 }
 
 extension ViewController: UITextFieldDelegate {
@@ -59,5 +71,25 @@ extension ViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         updateStoryPrompt()
         return true
+    }
+}
+
+extension ViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        if !results.isEmpty {
+            let result = results.first!
+            let itemProvider = result.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self) {
+                itemProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
+                    guard let image = image as? UIImage else {
+                        return
+                    }
+                    DispatchQueue.main.async {
+                        self?.storyPromptImageView.image = image
+                    }
+                }
+            }
+        }
     }
 }
