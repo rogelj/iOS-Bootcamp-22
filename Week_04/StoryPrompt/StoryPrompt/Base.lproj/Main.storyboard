@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21223" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21223" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cns-17-uw1">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Add Story Prompt View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="AddStoryPromptViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,10 +154,54 @@
             </objects>
             <point key="canvasLocation" x="-609" y="0.0"/>
         </scene>
+        <!--Story Prompt View Controller-->
+        <scene sceneID="JQl-7Z-nmS">
+            <objects>
+                <viewController id="cns-17-uw1" customClass="StoryPromptViewController" customModule="StoryPrompt" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="brh-sR-FPj">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="object-badge-banner" translatesAutoresizingMaskIntoConstraints="NO" id="r9Y-hr-rH9">
+                                <rect key="frame" x="0.0" y="-78" width="390" height="1000"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SMG-kf-1mR">
+                                <rect key="frame" x="75" y="367" width="240" height="110"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="3A6-ci-uh2"/>
+                                    <constraint firstAttribute="width" constant="240" id="stm-6G-rff"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="h2g-Pp-A4C"/>
+                        <color key="backgroundColor" red="0.0" green="0.89411764705882346" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="r9Y-hr-rH9" firstAttribute="centerY" secondItem="brh-sR-FPj" secondAttribute="centerY" id="0nP-qK-sOT"/>
+                            <constraint firstItem="SMG-kf-1mR" firstAttribute="centerY" secondItem="r9Y-hr-rH9" secondAttribute="centerY" id="3rQ-AR-jq4"/>
+                            <constraint firstItem="SMG-kf-1mR" firstAttribute="centerX" secondItem="brh-sR-FPj" secondAttribute="centerX" id="5eG-nA-RMx"/>
+                            <constraint firstItem="r9Y-hr-rH9" firstAttribute="width" secondItem="brh-sR-FPj" secondAttribute="width" id="KrN-hf-cFd"/>
+                            <constraint firstItem="SMG-kf-1mR" firstAttribute="centerX" secondItem="r9Y-hr-rH9" secondAttribute="centerX" id="WXg-ni-utU"/>
+                            <constraint firstItem="SMG-kf-1mR" firstAttribute="centerY" secondItem="brh-sR-FPj" secondAttribute="centerY" id="XJc-g9-CyO"/>
+                            <constraint firstItem="r9Y-hr-rH9" firstAttribute="centerX" secondItem="brh-sR-FPj" secondAttribute="centerX" id="kPH-hD-6R8"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="storyPromptTextView" destination="SMG-kf-1mR" id="jQM-un-1KR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eB6-Hv-MYl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="276.92307692307691" y="2.8436018957345972"/>
+        </scene>
     </scenes>
     <resources>
         <image name="10.circle" catalog="system" width="128" height="123"/>
         <image name="5.circle" catalog="system" width="128" height="123"/>
+        <image name="object-badge-banner" width="1000" height="1000"/>
         <image name="object-object_box-of-books" width="1000" height="1000"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
