@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		469AB66328C89E240099330D /* StoryPromptTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AB66228C89E240099330D /* StoryPromptTableViewController.swift */; };
 		46B3DF0428C740EA00AD68B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DF0328C740EA00AD68B0 /* AppDelegate.swift */; };
 		46B3DF0628C740EA00AD68B0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DF0528C740EA00AD68B0 /* SceneDelegate.swift */; };
 		46B3DF0828C740EA00AD68B0 /* AddStoryPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B3DF0728C740EA00AD68B0 /* AddStoryPromptViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		469AB66228C89E240099330D /* StoryPromptTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPromptTableViewController.swift; sourceTree = "<group>"; };
 		46B3DF0028C740EA00AD68B0 /* StoryPrompt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryPrompt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B3DF0328C740EA00AD68B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46B3DF0528C740EA00AD68B0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				46B3DF0728C740EA00AD68B0 /* AddStoryPromptViewController.swift */,
+				469AB66228C89E240099330D /* StoryPromptTableViewController.swift */,
 				46EC1DE828C7961B007ABCA3 /* StoryPromptViewController.swift */,
 			);
 			path = ViewControllers;
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				469AB66328C89E240099330D /* StoryPromptTableViewController.swift in Sources */,
 				46EC1DE928C7961B007ABCA3 /* StoryPromptViewController.swift in Sources */,
 				46B3DF1B28C7435600AD68B0 /* StoryPrompts.swift in Sources */,
 				46B3DF0828C740EA00AD68B0 /* AddStoryPromptViewController.swift in Sources */,
