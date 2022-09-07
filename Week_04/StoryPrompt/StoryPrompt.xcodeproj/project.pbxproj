@@ -48,8 +48,8 @@
 		46AB1A3228C792450060729B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				46B3DF0728C740EA00AD68B0 /* AddStoryPromptViewController.swift */,
 				469AB66228C89E240099330D /* StoryPromptTableViewController.swift */,
+				46B3DF0728C740EA00AD68B0 /* AddStoryPromptViewController.swift */,
 				46EC1DE828C7961B007ABCA3 /* StoryPromptViewController.swift */,
 			);
 			path = ViewControllers;

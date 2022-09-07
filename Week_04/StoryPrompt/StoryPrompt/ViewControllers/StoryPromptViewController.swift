@@ -28,4 +28,7 @@ class StoryPromptViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
+    @IBAction func cancelStoryPrompt(_ sender: Any) {
+        performSegue(withIdentifier: "CancelStoryPrompt", sender: nil)
+    }
 }

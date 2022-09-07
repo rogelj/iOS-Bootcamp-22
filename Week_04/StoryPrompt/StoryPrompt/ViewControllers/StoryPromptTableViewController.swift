@@ -14,26 +14,26 @@ class StoryPromptTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let storyPrompt1 = StoryPromptEntry()
-        let storyPrompt2 = StoryPromptEntry()
-        let storyPrompt3 = StoryPromptEntry()
-        
-        storyPrompt1.noun = "toaster"
-        storyPrompt1.adjective = "smelly"
-        storyPrompt1.verb = "attacks"
-        storyPrompt1.number = 5
-        
-        storyPrompt2.noun = "iron"
-        storyPrompt2.adjective = "cool"
-        storyPrompt2.verb = "reads"
-        storyPrompt2.number = 6
-        
-        storyPrompt3.noun = "kettle"
-        storyPrompt3.adjective = "noisy"
-        storyPrompt3.verb = "smells"
-        storyPrompt3.number = 7
-
-        storyPrompts = [storyPrompt1, storyPrompt2, storyPrompt3]
+//        let storyPrompt1 = StoryPromptEntry()
+//        let storyPrompt2 = StoryPromptEntry()
+//        let storyPrompt3 = StoryPromptEntry()
+//
+//        storyPrompt1.noun = "toaster"
+//        storyPrompt1.adjective = "smelly"
+//        storyPrompt1.verb = "attacks"
+//        storyPrompt1.number = 5
+//
+//        storyPrompt2.noun = "iron"
+//        storyPrompt2.adjective = "cool"
+//        storyPrompt2.verb = "reads"
+//        storyPrompt2.number = 6
+//
+//        storyPrompt3.noun = "kettle"
+//        storyPrompt3.adjective = "noisy"
+//        storyPrompt3.verb = "smells"
+//        storyPrompt3.number = 7
+//
+//        storyPrompts = [storyPrompt1, storyPrompt2, storyPrompt3]
 
     }
 
@@ -69,6 +69,19 @@ class StoryPromptTableViewController: UITableViewController {
             }
             storyPromptViewController.storyPrompt = storyPrompt
         }
+    }
+    
+    @IBAction func saveStoryPrompt(unwindSegue: UIStoryboardSegue) {
+        guard let storyPromptViewController = unwindSegue.source as? StoryPromptViewController,
+              let storyPrompt = storyPromptViewController.storyPrompt else {
+            return
+        }
+        storyPrompts.append(storyPrompt)
+        tableView.reloadData()
+    }
+    
+    @IBAction func cancelStoryPrompt(unwindSegue: UIStoryboardSegue) {
+        
     }
 
 }
