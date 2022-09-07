@@ -11,11 +11,11 @@ struct LayoutStacks: View {
     var body: some View {
         VStack {
             HStack(alignment: .bottom, spacing: 20.0) {
-                Thumbnail()
+                Thumbnail1()
                 
                 VStack(alignment: .leading, spacing: 20.0) {
-                    MixDescription()
-                    Buttons()
+                    MixDescription1()
+                    Buttons1()
                 }
             }
             .padding()
@@ -26,7 +26,7 @@ struct LayoutStacks: View {
     }
 }
 
-struct Thumbnail: View {
+struct Thumbnail1: View {
     var body: some View {
         ZStack(alignment: Alignment(horizontal: .leading, vertical: .top)) {
             ZStack {
@@ -57,7 +57,7 @@ struct Thumbnail: View {
     }
 }
 
-struct ButtonLabel: View {
+struct ButtonLabel1: View {
     let title: String
     let systemImage: String
     
@@ -74,22 +74,22 @@ struct ButtonLabel: View {
 }
 
 
-struct Buttons: View {
+struct Buttons1: View {
     var body: some View {
         HStack(spacing: 12.0) {
             Button { print("Play!") }
         label: {
-            ButtonLabel(title: "Play", systemImage: "play.fill")
+            ButtonLabel1(title: "Play", systemImage: "play.fill")
         }
             Button { print("Shuffle!") }
         label: {
-            ButtonLabel(title: "Shuffle", systemImage: "shuffle")
+            ButtonLabel1(title: "Shuffle", systemImage: "shuffle")
         }
         }
     }
 }
 
-struct MixDescription: View {
+struct MixDescription1: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text("Meow! Mix")
