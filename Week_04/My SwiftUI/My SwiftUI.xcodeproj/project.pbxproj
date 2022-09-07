@@ -15,6 +15,7 @@
 		469AB68228C8B7D50099330D /* Challenge 2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AB67F28C8B7D50099330D /* Challenge 2.swift */; };
 		469AB68928C8BB8F0099330D /* StateBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AB68828C8BB8F0099330D /* StateBinding.swift */; };
 		469AB68B28C8BE7E0099330D /* ChallengeStateBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AB68A28C8BE7E0099330D /* ChallengeStateBinding.swift */; };
+		469AB68E28C8D6F20099330D /* LayoutStacks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 469AB68D28C8D6F20099330D /* LayoutStacks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		469AB67F28C8B7D50099330D /* Challenge 2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Challenge 2.swift"; sourceTree = "<group>"; };
 		469AB68828C8BB8F0099330D /* StateBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateBinding.swift; sourceTree = "<group>"; };
 		469AB68A28C8BE7E0099330D /* ChallengeStateBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeStateBinding.swift; sourceTree = "<group>"; };
+		469AB68D28C8D6F20099330D /* LayoutStacks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutStacks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		469AB66F28C8B5040099330D /* My SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				469AB68C28C8D6DC0099330D /* LayoutStacks */,
 				469AB68528C8BB650099330D /* State_Binding */,
 				469AB68428C8B7E50099330D /* Modifier_Match_Challenge */,
 				469AB67028C8B5040099330D /* My_SwiftUIApp.swift */,
@@ -93,6 +96,14 @@
 				469AB68A28C8BE7E0099330D /* ChallengeStateBinding.swift */,
 			);
 			path = State_Binding;
+			sourceTree = "<group>";
+		};
+		469AB68C28C8D6DC0099330D /* LayoutStacks */ = {
+			isa = PBXGroup;
+			children = (
+				469AB68D28C8D6F20099330D /* LayoutStacks.swift */,
+			);
+			path = LayoutStacks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				469AB67328C8B5040099330D /* ContentView.swift in Sources */,
+				469AB68E28C8D6F20099330D /* LayoutStacks.swift in Sources */,
 				469AB68228C8B7D50099330D /* Challenge 2.swift in Sources */,
 				469AB68928C8BB8F0099330D /* StateBinding.swift in Sources */,
 				469AB68B28C8BE7E0099330D /* ChallengeStateBinding.swift in Sources */,
