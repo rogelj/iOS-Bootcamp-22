@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct StateBinding: View {
-    @State var swiftyColor: Color = .red
+    @State private var swiftyColor: Color = .red
+    @State private var swfityOpacity: Double = 0.7
     
     var body: some View {
         VStack {
-            ColorPicker("Swifty Color", selection: $swiftyColor)
+            SwiftyControls(swiftyColor: $swiftyColor, swfityOpacity: $swfityOpacity)
+            
             Image(systemName: "swift")
                 .resizable()
                 .scaledToFit()
                 .padding(25)
                 .foregroundColor(.white)
-                .opacity(0.7)
+                .opacity(swfityOpacity)
                 .background(swiftyColor)
                 .cornerRadius(50)
         }
@@ -29,5 +31,18 @@ struct StateBinding: View {
 struct StateBinding_Previews: PreviewProvider {
     static var previews: some View {
         StateBinding()
+    }
+}
+
+struct SwiftyControls: View {
+    @Binding var swiftyColor: Color
+    @Binding var swfityOpacity: Double
+    
+    var body: some View {
+        VStack {
+            ColorPicker("Swifty Color", selection: $swiftyColor)
+            Slider(value: $swfityOpacity, in: 0...1)
+                .accentColor(swiftyColor)
+        }
     }
 }
