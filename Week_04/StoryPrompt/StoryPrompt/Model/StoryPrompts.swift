@@ -57,7 +57,8 @@ class StoryPrompts {
     "When Beth answered the <noun>, a <adjective> voice asks her about scary movies. When she guesses wrong, the <noun> <verb> her friends until she guesses right.",
     "At night, Timmy sees a <adjective> <noun> that no one else can see. Timmy <verb> crazy so he confronts the <noun> in the dead of night.",
     "An ancient <noun> is broken The dead <verb> from their graves. The <adjective> dead surround a small town <number> thousand people",
-    "A radioactive leak causes a <noun> to grow <number> of feet. The <noun> then <verb> the <adjective> city."
+    "A radioactive leak causes a <noun> to grow <number> of feet. The <noun> then <verb> the <adjective> city.",
+    "A clone attack causes a <noun> to generate <number> cats. The <noun> then <verb> the <adjective> city."
   ]
 ]
 
