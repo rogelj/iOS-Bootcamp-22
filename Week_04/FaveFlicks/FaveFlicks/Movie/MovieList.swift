@@ -35,7 +35,7 @@ import SwiftUI
 struct MovieList: View {
   @StateObject var movieStore = MovieStore()
   @State private var isPresented = false
-  @ObservedObject var userStore = UserStore()
+  @EnvironmentObject var userStore: UserStore
 
   var body: some View {
     NavigationView {
@@ -51,7 +51,7 @@ struct MovieList: View {
       .navigationBarTitle(Text("Fave Flicks"))
       .navigationBarItems(
         leading:
-          NavigationLink(destination: UserView(userStore: userStore)) {
+          NavigationLink(destination: UserView()) {
             HStack {
               Text(userStore.currentUserInfo.userName)
               Image(systemName: "person.fill")
