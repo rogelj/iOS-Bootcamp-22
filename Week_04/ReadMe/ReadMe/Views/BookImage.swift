@@ -2,7 +2,7 @@ import SwiftUI
 import UIKit
 
 struct BookImage: View {
-  var book: Book
+  @ObservedObject var book: Book
 
   private var imageAvailable: Bool {
     switch book.image {
@@ -21,38 +21,41 @@ struct BookImage: View {
   }
   
   var body: some View {
-      ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
-        if imageAvailable {
-          Image(uiImage: book.image!)
-            .resizable()
-            .scaledToFill()
-        } else {
-          PlaceholderImage(size: CGSize(width: 200, height: 200))
-        }
-        
-        VStack {
-          Button { book.readMe.toggle() }
-            label: {
-              bookmark
-                .frame(height: 100)
+      GeometryReader { geometry in
+          ZStack(alignment: Alignment(horizontal: .trailing, vertical: .bottom)) {
+            if imageAvailable {
+              Image(uiImage: book.image!)
+                .resizable()
+                .scaledToFill()
+                .frame(width: geometry.size.width, height: geometry.size.height)
+            } else {
+                PlaceholderImage(size: geometry.size)
             }
-            .padding()
-          
-          Spacer()
-        }
-        
-        HStack {
-          TitleAuthorView(title: book.title, author: book.author)
-          Spacer()
-        }
-        .foregroundColor(Color("ImageText"))
-        .blendMode(.colorDodge)
-        .background(
-          Color.accentColor
-            .opacity(0.75)
-        )
+            
+            VStack {
+              Button { book.readMe.toggle() }
+                label: {
+                  bookmark
+                        .frame(height: geometry.size.height / 5)
+                }
+                .padding()
+              
+              Spacer()
+            }
+            
+            HStack {
+              TitleAuthorView(title: book.title, author: book.author)
+              Spacer()
+            }
+            .foregroundColor(Color("ImageText"))
+            .blendMode(.colorDodge)
+            .background(
+              Color.accentColor
+                .opacity(0.75)
+            )
+          }
+          .cornerRadius(25)
       }
-      .cornerRadius(25)
     }
 }
 

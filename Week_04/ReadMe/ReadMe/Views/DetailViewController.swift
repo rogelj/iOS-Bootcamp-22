@@ -42,7 +42,11 @@ class DetailViewController: UITableViewController {
   @IBOutlet var imageView: UIImageView!
   @IBOutlet var reviewTextView: UITextView!
   
-  @IBAction func toggleReadMe() {
+    @IBSegueAction func bookImage(_ coder: NSCoder) -> UIViewController? {
+        UIHostingController(coder: coder, rootView: BookImage(book: book))
+    }
+    
+    @IBAction func toggleReadMe() {
     book.readMe.toggle()
     let image = book.readMe
       ? UIImage(systemName: LibrarySymbol.bookmarkFill)

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -76,13 +77,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zYD-ST-ENJ">
                                                     <rect key="frame" x="89" y="18" width="285" height="54"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpn-G9-jSo">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpn-G9-jSo">
                                                             <rect key="frame" x="0.0" y="0.0" width="285" height="26.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjR-Gf-NYZ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tjR-Gf-NYZ">
                                                             <rect key="frame" x="0.0" y="30" width="285" height="24"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                                             <color key="textColor" systemColor="secondaryLabelColor"/>
@@ -281,7 +282,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kF5-Y8-vuV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4064" y="-220"/>
+            <point key="canvasLocation" x="3699" y="-251"/>
         </scene>
         <!--Hosting Controller-->
         <scene sceneID="0L9-LS-X9a">
@@ -304,7 +305,7 @@
                         <sections>
                             <tableViewSection id="TCO-su-1Az">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="Lw0-np-KzC" userLabel="Title Author ReadMe Cell">
+                                    <tableViewCell hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="0.0" id="Lw0-np-KzC" userLabel="Title Author ReadMe Cell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lw0-np-KzC" id="C8M-wt-T9j">
@@ -360,10 +361,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-SS-g8P">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s2f-SS-g8P">
                                                     <rect key="frame" x="20.5" y="11" width="373" height="378"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W7B-Dr-kWv">
+                                                        <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nt6-3g-hZA">
+                                                            <rect key="frame" x="66" y="125" width="240" height="128"/>
+                                                            <connections>
+                                                                <segue destination="QFw-ft-4zv" kind="embed" destinationCreationSelector="bookImage:" id="wjE-wy-59m"/>
+                                                            </connections>
+                                                        </containerView>
+                                                        <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="W7B-Dr-kWv">
                                                             <rect key="frame" x="0.0" y="0.5" width="373" height="359"/>
                                                             <color key="tintColor" systemColor="placeholderTextColor"/>
                                                         </imageView>
@@ -378,6 +385,8 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="W7B-Dr-kWv" firstAttribute="width" secondItem="s2f-SS-g8P" secondAttribute="width" id="hQ9-Fc-qrG"/>
+                                                        <constraint firstAttribute="bottom" secondItem="mqX-5t-mu4" secondAttribute="bottom" constant="8.5" id="uV4-J0-gW8"/>
+                                                        <constraint firstItem="nt6-3g-hZA" firstAttribute="height" secondItem="s2f-SS-g8P" secondAttribute="height" multiplier="0.9" id="zol-lH-soi"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -437,7 +446,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qMN-HK-sjG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2577" y="465"/>
+            <point key="canvasLocation" x="2860.8695652173915" y="458.70535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="B5j-jR-Df7">
@@ -459,6 +468,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aer-Bp-cxj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1013" y="115"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kj6-n6-fzH">
+            <objects>
+                <viewController id="QFw-ft-4zv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="igE-44-yj7">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="eX4-VI-vaa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c1r-Ne-UTO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3626" y="431"/>
         </scene>
     </scenes>
     <color key="tintColor" name="ReadMe Tint Color"/>

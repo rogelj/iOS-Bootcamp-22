@@ -30,46 +30,47 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
+import Combine
 import UIKit
 
-final class Book {
-  var image: UIImage?
-
-  let title: String
-  let author: String
-  var review: String?
-  var readMe: Bool
-  
-  init(title: String, author: String, review: String? = nil, readMe: Bool = true, image: UIImage? = nil) {
-    self.title = title
-    self.author = author
-    self.review = review
-    self.readMe = readMe
-    self.image = image
-  }
-  
-  static let mockBook = Book(title: "", author: "")
+final class Book: ObservableObject {
+    @Published var image: UIImage?
+    
+    let title: String
+    let author: String
+    var review: String?
+    @Published var readMe: Bool
+    
+    init(title: String, author: String, review: String? = nil, readMe: Bool = true, image: UIImage? = nil) {
+        self.title = title
+        self.author = author
+        self.review = review
+        self.readMe = readMe
+        self.image = image
+    }
+    
+    static let mockBook = Book(title: "", author: "")
 }
 
 extension Book: Hashable, Identifiable {
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(id)
-  }
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 extension Book: Equatable {
-  static func == (lhs: Book, rhs: Book) -> Bool {
-    lhs.id == rhs.id
-  }
+    static func == (lhs: Book, rhs: Book) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
 extension Book: Codable {
-  enum CodingKeys: String, CodingKey {
-    case title
-    case author
-    case review
-    case readMe
-  }
+    enum CodingKeys: String, CodingKey {
+        case title
+        case author
+        case review
+        case readMe
+    }
 }
 
 
@@ -77,41 +78,41 @@ extension Book: Codable {
 import struct Combine.Published
 
 extension Published: Codable where Value: Codable {
-  public func encode(to encoder: Encoder) throws {
-    guard
-      let storageValue =
-        Mirror(reflecting: self).descendant("storage")
-        .map(Mirror.init)?.children.first?.value,
-      let value =
-        storageValue as? Value
-        ?? ((storageValue as? Publisher).map { publisher in
-          Mirror(reflecting: publisher).descendant("subject", "currentValue")
-        }) as? Value
-    else { throw EncodingError.invalidValue(self, codingPath: encoder.codingPath) }
-
-    try value.encode(to: encoder)
-  }
-
-  public init(from decoder: Decoder) throws {
-    self.init(
-      initialValue: try .init(from: decoder)
-    )
-  }
+    public func encode(to encoder: Encoder) throws {
+        guard
+            let storageValue =
+                Mirror(reflecting: self).descendant("storage")
+                .map(Mirror.init)?.children.first?.value,
+            let value =
+                storageValue as? Value
+                ?? ((storageValue as? Publisher).map { publisher in
+                    Mirror(reflecting: publisher).descendant("subject", "currentValue")
+                }) as? Value
+        else { throw EncodingError.invalidValue(self, codingPath: encoder.codingPath) }
+        
+        try value.encode(to: encoder)
+    }
+    
+    public init(from decoder: Decoder) throws {
+        self.init(
+            initialValue: try .init(from: decoder)
+        )
+    }
 }
 
 private extension EncodingError {
-  /// `invalidValue` without having to pass a `Context` as an argument.
-  static func invalidValue(
-    _ value: Any,
-    codingPath: [CodingKey],
-    debugDescription: String = .init()
-  ) -> Self {
-    .invalidValue(
-      value,
-      .init(
-        codingPath: codingPath,
-        debugDescription: debugDescription
-      )
-    )
-  }
+    /// `invalidValue` without having to pass a `Context` as an argument.
+    static func invalidValue(
+        _ value: Any,
+        codingPath: [CodingKey],
+        debugDescription: String = .init()
+    ) -> Self {
+        .invalidValue(
+            value,
+            .init(
+                codingPath: codingPath,
+                debugDescription: debugDescription
+            )
+        )
+    }
 }
