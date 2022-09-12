@@ -18,5 +18,7 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 - [Week 04](Week_04) - UIKit and SwiftUI
 
+- [Week 05](Week_05) - Layout and Navigation
+
   
 
