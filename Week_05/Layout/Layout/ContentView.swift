@@ -33,35 +33,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @State private var selectedGenre = Genre.list.first
     
     var body: some View {
+        
         NavigationView {
             ScrollView {
                 ScrollViewReader { proxy in
-                    LazyVStack {
-                        let formatter: DateFormatter = {
-                            let formatter = DateFormatter()
-                            formatter.timeStyle = .medium
-                            return formatter
-                        } ()
+                    let horizontalPadding: CGFloat = 40
+                    //            let genre = Genre.list.randomElement()!
+                    
+                    LazyVStack(alignment: .leading) {
                         ForEach(Genre.list) { genre in
-                            Text(
-                                formatter.string(from: Date())
-                            )
-                            
-                            genre.subgenres.randomElement()!.view
+                            Text(genre.name)
+                                .fontWeight(.heavy)
+                                .padding(.leading, horizontalPadding)
                                 .id(genre)
-                        }
-                        .onChange(of: selectedGenre) { genre in
-                            selectedGenre = nil
-                            withAnimation {
-                                proxy.scrollTo(genre)
+                            
+                            ScrollView(.horizontal, showsIndicators: false) {
+                                LazyHStack(spacing: 20) {
+                                    ForEach(genre.subgenres, content: \.view)
+                                }
+                                .padding(.leading, horizontalPadding)
                             }
+                            Divider()
+                                .padding(.horizontal, horizontalPadding)
+                                .padding(.top)
                         }
+                    }
+                    .onChange(of: selectedGenre) { genre in
+                        withAnimation {
+                            proxy.scrollTo(genre, anchor: .top)
+                        }
+                        
+                        selectedGenre = nil
                     }
                 }
             }
+            .padding(.top)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem {
@@ -79,39 +89,39 @@ struct ContentView: View {
 }
 
 private extension Genre.Subgenre {
-  var view: some View {
-    RoundedRectangle(cornerRadius: 8)
-      .fill(
-        LinearGradient(
-          gradient: .init(
-            colors: AnyIterator { } .prefix(2).map {
-              .random(saturation: 2 / 3, value: 0.85)
-            }
-          ),
-          startPoint: .topLeading, endPoint: .bottomTrailing
-        )
-      )
-      .frame(width: 125, height: 125)
-      .overlay(
-        Image("Genre/\(Int.random(in: 1...92))")
-          .resizable()
-          .saturation(0)
-          .blendMode(.multiply)
-          .scaledToFit()
-      )
-      .overlay(
-        Text(name)
-          .foregroundColor(.white)
-          .fontWeight(.bold)
-          .padding(10)
-          .frame(alignment: .bottomLeading),
-        alignment: .bottomLeading
-      )
-  }
+    var view: some View {
+        RoundedRectangle(cornerRadius: 8)
+            .fill(
+                LinearGradient(
+                    gradient: .init(
+                        colors: AnyIterator { } .prefix(2).map {
+                            .random(saturation: 2 / 3, value: 0.85)
+                        }
+                    ),
+                    startPoint: .topLeading, endPoint: .bottomTrailing
+                )
+            )
+            .frame(width: 125, height: 125)
+            .overlay(
+                Image("Genre/\(Int.random(in: 1...92))")
+                    .resizable()
+                    .saturation(0)
+                    .blendMode(.multiply)
+                    .scaledToFit()
+            )
+            .overlay(
+                Text(name)
+                    .foregroundColor(.white)
+                    .fontWeight(.bold)
+                    .padding(10)
+                    .frame(alignment: .bottomLeading),
+                alignment: .bottomLeading
+            )
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+    static var previews: some View {
+        ContentView()
+    }
 }
