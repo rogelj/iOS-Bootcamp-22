@@ -18,6 +18,7 @@
 		46A0667828D092BB000D64D6 /* Razémon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667728D092BB000D64D6 /* Razémon.swift */; };
 		46A0667A28D09540000D64D6 /* ZStacksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667928D09540000D64D6 /* ZStacksView.swift */; };
 		46A0667C28D09785000D64D6 /* GeometryReaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667B28D09785000D64D6 /* GeometryReaderView.swift */; };
+		46A0667E28D09998000D64D6 /* Challenge3Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667D28D09998000D64D6 /* Challenge3Axis.swift */; };
 		495E970425320BBD004B5E32 /* SIMD3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970325320BBD004B5E32 /* SIMD3.swift */; };
 		495E970925320BF6004B5E32 /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970825320BF6004B5E32 /* Hashable.swift */; };
 		495E970D25320D0E004B5E32 /* UIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970C25320D0E004B5E32 /* UIViewControllerRepresentable.swift */; };
@@ -41,6 +42,7 @@
 		46A0667728D092BB000D64D6 /* Razémon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Razémon.swift"; sourceTree = "<group>"; };
 		46A0667928D09540000D64D6 /* ZStacksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZStacksView.swift; sourceTree = "<group>"; };
 		46A0667B28D09785000D64D6 /* GeometryReaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryReaderView.swift; sourceTree = "<group>"; };
+		46A0667D28D09998000D64D6 /* Challenge3Axis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge3Axis.swift; sourceTree = "<group>"; };
 		495E970325320BBD004B5E32 /* SIMD3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD3.swift; sourceTree = "<group>"; };
 		495E970825320BF6004B5E32 /* Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
 		495E970C25320D0E004B5E32 /* UIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRepresentable.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				46A0667728D092BB000D64D6 /* Razémon.swift */,
 				46A0667928D09540000D64D6 /* ZStacksView.swift */,
 				46A0667B28D09785000D64D6 /* GeometryReaderView.swift */,
+				46A0667D28D09998000D64D6 /* Challenge3Axis.swift */,
 				49D74AB5252D034A004662E8 /* Assets.xcassets */,
 				49D74ABA252D034A004662E8 /* Info.plist */,
 			);
@@ -191,6 +194,7 @@
 				46A0667828D092BB000D64D6 /* Razémon.swift in Sources */,
 				46A0666C28D0701B000D64D6 /* ContentViewGridsChallenge.swift in Sources */,
 				495E971125320D54004B5E32 /* BlurView.swift in Sources */,
+				46A0667E28D09998000D64D6 /* Challenge3Axis.swift in Sources */,
 				46A0667628D09296000D64D6 /* AlignmentChallenge.swift in Sources */,
 				46A0667228D08C8D000D64D6 /* AlignmentGuidesView.swift in Sources */,
 				46A0667428D08F1F000D64D6 /* CustomAlignment.swift in Sources */,
