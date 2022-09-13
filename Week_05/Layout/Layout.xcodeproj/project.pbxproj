@@ -14,6 +14,8 @@
 		46A0667028D07A23000D64D6 /* AligningChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0666F28D07A23000D64D6 /* AligningChallenge.swift */; };
 		46A0667228D08C8D000D64D6 /* AlignmentGuidesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667128D08C8D000D64D6 /* AlignmentGuidesView.swift */; };
 		46A0667428D08F1F000D64D6 /* CustomAlignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667328D08F1F000D64D6 /* CustomAlignment.swift */; };
+		46A0667628D09296000D64D6 /* AlignmentChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667528D09296000D64D6 /* AlignmentChallenge.swift */; };
+		46A0667828D092BB000D64D6 /* Razémon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0667728D092BB000D64D6 /* Razémon.swift */; };
 		495E970425320BBD004B5E32 /* SIMD3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970325320BBD004B5E32 /* SIMD3.swift */; };
 		495E970925320BF6004B5E32 /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970825320BF6004B5E32 /* Hashable.swift */; };
 		495E970D25320D0E004B5E32 /* UIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970C25320D0E004B5E32 /* UIViewControllerRepresentable.swift */; };
@@ -33,6 +35,8 @@
 		46A0666F28D07A23000D64D6 /* AligningChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AligningChallenge.swift; sourceTree = "<group>"; };
 		46A0667128D08C8D000D64D6 /* AlignmentGuidesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentGuidesView.swift; sourceTree = "<group>"; };
 		46A0667328D08F1F000D64D6 /* CustomAlignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlignment.swift; sourceTree = "<group>"; };
+		46A0667528D09296000D64D6 /* AlignmentChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlignmentChallenge.swift; sourceTree = "<group>"; };
+		46A0667728D092BB000D64D6 /* Razémon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Razémon.swift"; sourceTree = "<group>"; };
 		495E970325320BBD004B5E32 /* SIMD3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD3.swift; sourceTree = "<group>"; };
 		495E970825320BF6004B5E32 /* Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
 		495E970C25320D0E004B5E32 /* UIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRepresentable.swift; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 				46A0666F28D07A23000D64D6 /* AligningChallenge.swift */,
 				46A0667128D08C8D000D64D6 /* AlignmentGuidesView.swift */,
 				46A0667328D08F1F000D64D6 /* CustomAlignment.swift */,
+				46A0667528D09296000D64D6 /* AlignmentChallenge.swift */,
+				46A0667728D092BB000D64D6 /* Razémon.swift */,
 				49D74AB5252D034A004662E8 /* Assets.xcassets */,
 				49D74ABA252D034A004662E8 /* Info.plist */,
 			);
@@ -176,8 +182,10 @@
 				46A0666E28D07778000D64D6 /* StacksAlignment.swift in Sources */,
 				49D74AB4252D0347004662E8 /* ContentView.swift in Sources */,
 				46A0667028D07A23000D64D6 /* AligningChallenge.swift in Sources */,
+				46A0667828D092BB000D64D6 /* Razémon.swift in Sources */,
 				46A0666C28D0701B000D64D6 /* ContentViewGridsChallenge.swift in Sources */,
 				495E971125320D54004B5E32 /* BlurView.swift in Sources */,
+				46A0667628D09296000D64D6 /* AlignmentChallenge.swift in Sources */,
 				46A0667228D08C8D000D64D6 /* AlignmentGuidesView.swift in Sources */,
 				46A0667428D08F1F000D64D6 /* CustomAlignment.swift in Sources */,
 				495E970925320BF6004B5E32 /* Hashable.swift in Sources */,
