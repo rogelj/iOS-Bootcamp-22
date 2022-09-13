@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46A0666828D06C6A000D64D6 /* ContentViewGrids.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0666728D06C6A000D64D6 /* ContentViewGrids.swift */; };
+		46A0666A28D06E35000D64D6 /* ContentViewPinnedScrollable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0666928D06E35000D64D6 /* ContentViewPinnedScrollable.swift */; };
+		46A0666C28D0701B000D64D6 /* ContentViewGridsChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A0666B28D0701B000D64D6 /* ContentViewGridsChallenge.swift */; };
 		495E970425320BBD004B5E32 /* SIMD3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970325320BBD004B5E32 /* SIMD3.swift */; };
 		495E970925320BF6004B5E32 /* Hashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970825320BF6004B5E32 /* Hashable.swift */; };
 		495E970D25320D0E004B5E32 /* UIViewControllerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 495E970C25320D0E004B5E32 /* UIViewControllerRepresentable.swift */; };
@@ -19,6 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46A0666728D06C6A000D64D6 /* ContentViewGrids.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewGrids.swift; sourceTree = "<group>"; };
+		46A0666928D06E35000D64D6 /* ContentViewPinnedScrollable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewPinnedScrollable.swift; sourceTree = "<group>"; };
+		46A0666B28D0701B000D64D6 /* ContentViewGridsChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewGridsChallenge.swift; sourceTree = "<group>"; };
 		495E970325320BBD004B5E32 /* SIMD3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SIMD3.swift; sourceTree = "<group>"; };
 		495E970825320BF6004B5E32 /* Hashable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hashable.swift; sourceTree = "<group>"; };
 		495E970C25320D0E004B5E32 /* UIViewControllerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRepresentable.swift; sourceTree = "<group>"; };
@@ -78,6 +84,9 @@
 				49683F9A2531C21C00567556 /* Genre.swift */,
 				49D74AB1252D0347004662E8 /* App.swift */,
 				49D74AB3252D0347004662E8 /* ContentView.swift */,
+				46A0666728D06C6A000D64D6 /* ContentViewGrids.swift */,
+				46A0666928D06E35000D64D6 /* ContentViewPinnedScrollable.swift */,
+				46A0666B28D0701B000D64D6 /* ContentViewGridsChallenge.swift */,
 				49D74AB5252D034A004662E8 /* Assets.xcassets */,
 				49D74ABA252D034A004662E8 /* Info.plist */,
 			);
@@ -153,9 +162,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				49D74AB4252D0347004662E8 /* ContentView.swift in Sources */,
+				46A0666C28D0701B000D64D6 /* ContentViewGridsChallenge.swift in Sources */,
 				495E971125320D54004B5E32 /* BlurView.swift in Sources */,
 				495E970925320BF6004B5E32 /* Hashable.swift in Sources */,
 				495E970425320BBD004B5E32 /* SIMD3.swift in Sources */,
+				46A0666828D06C6A000D64D6 /* ContentViewGrids.swift in Sources */,
+				46A0666A28D06E35000D64D6 /* ContentViewPinnedScrollable.swift in Sources */,
 				49D74AB2252D0347004662E8 /* App.swift in Sources */,
 				49D74AC6252EE958004662E8 /* Color.swift in Sources */,
 				495E970D25320D0E004B5E32 /* UIViewControllerRepresentable.swift in Sources */,
