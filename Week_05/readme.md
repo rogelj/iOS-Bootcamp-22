@@ -4,10 +4,10 @@
 
 **Content:**
 
-- [ ]  [SwiftUI Layout and Interfaces](https://www.raywenderlich.com/28684964-swiftui-layout-interfaces) video course (1h 41m)
-- [ ]  [SwiftUI by Tutorials](https://www.raywenderlich.com/books/swiftui-by-tutorials/v4.0/) book, Chapter 13: Navigation
-- [ ]  [SwiftUI by Tutorials](https://www.raywenderlich.com/books/swiftui-by-tutorials/v4.0/) book, Chapter 14: Lists
-- [ ]  **Optional**: [Xcode Tips and Tricks](https://www.raywenderlich.com/19019328-xcode-tips-and-tricks) video course (1h 53m)
+- [x]  [SwiftUI Layout and Interfaces](https://www.raywenderlich.com/28684964-swiftui-layout-interfaces) video course (1h 41m)
+- [x]  [SwiftUI by Tutorials](https://www.raywenderlich.com/books/swiftui-by-tutorials/v4.0/chapters/13-navigation) book, Chapter 13: Navigation
+- [x]  [SwiftUI by Tutorials](https://www.raywenderlich.com/books/swiftui-by-tutorials/v4.0/chapters/14-lists) book, Chapter 14: Lists
+- [x]  **Optional**: [Xcode Tips and Tricks](https://www.raywenderlich.com/19019328-xcode-tips-and-tricks) video course (20m)
 
 
 
@@ -38,3 +38,8 @@ The modifier has two parameters. The first one is an alignment value. If that do
 The closure uses one parameter, of type ViewDimensions. As you might expect, it’s got a width property, and one for height. The view they give you information about is the one on which you’re using the modifier.
 
 So, for example, a center Alignment Guide is half of width or height, depending on alignment axis.
+
+- [Drawing in iOS with SwiftUI](https://www.raywenderlich.com/6485147-drawing-in-ios-with-swiftui)
+- [SwiftUI Anchor](https://developer.apple.com/documentation/swiftui/anchor)
+- [GeometryProxy subscript](https://developer.apple.com/documentation/swiftui/geometryproxy/3364158-subscript)
+- [SwiftUI View anchorPreference](https://developer.apple.com/documentation/swiftui/view/3365925-anchorpreference)
