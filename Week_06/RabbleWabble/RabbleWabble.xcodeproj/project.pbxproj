@@ -12,10 +12,12 @@
 		4227AF1C239B6C7C00AC0854 /* QuestionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4227AF1B239B6C7C00AC0854 /* QuestionGroup.swift */; };
 		428D6934211660200052D54F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D6933211660200052D54F /* AppDelegate.swift */; };
 		428D6936211660200052D54F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D6935211660200052D54F /* QuestionViewController.swift */; };
-		428D69552119FE9F0052D54F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 428D69542119FE9F0052D54F /* LaunchScreen.storyboard */; };
 		428D69572119FEA80052D54F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 428D69562119FEA80052D54F /* Assets.xcassets */; };
 		428D69592119FF5D0052D54F /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428D69582119FF5D0052D54F /* QuestionView.swift */; };
-		42D0E17223C9E84F00CED935 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42D0E17123C9E84F00CED935 /* Main.storyboard */; };
+		4650D38228D8A40000A1F308 /* SelectQuestionGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650D38128D8A40000A1F308 /* SelectQuestionGroupViewController.swift */; };
+		4650D38528D8A41D00A1F308 /* QuestionGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4650D38328D8A41D00A1F308 /* QuestionGroupCell.swift */; };
+		4650D38628D8A41D00A1F308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4650D38428D8A41D00A1F308 /* Main.storyboard */; };
+		4650D38828D8A43800A1F308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4650D38728D8A43800A1F308 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,10 +28,12 @@
 		428D6933211660200052D54F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		428D6935211660200052D54F /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		428D693F211660220052D54F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		428D69542119FE9F0052D54F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		428D69562119FEA80052D54F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		428D69582119FF5D0052D54F /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
-		42D0E17123C9E84F00CED935 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		4650D38128D8A40000A1F308 /* SelectQuestionGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectQuestionGroupViewController.swift; sourceTree = "<group>"; };
+		4650D38328D8A41D00A1F308 /* QuestionGroupCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionGroupCell.swift; sourceTree = "<group>"; };
+		4650D38428D8A41D00A1F308 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = "../../../../../Material/Week_06/03-using-mvc/resources/Views/Main.storyboard"; sourceTree = "<group>"; };
+		4650D38728D8A43800A1F308 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				428D6935211660200052D54F /* QuestionViewController.swift */,
+				4650D38128D8A40000A1F308 /* SelectQuestionGroupViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -111,8 +116,9 @@
 		428D69492116608E0052D54F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				428D69542119FE9F0052D54F /* LaunchScreen.storyboard */,
-				42D0E17123C9E84F00CED935 /* Main.storyboard */,
+				4650D38728D8A43800A1F308 /* LaunchScreen.storyboard */,
+				4650D38428D8A41D00A1F308 /* Main.storyboard */,
+				4650D38328D8A41D00A1F308 /* QuestionGroupCell.swift */,
 				428D69582119FF5D0052D54F /* QuestionView.swift */,
 			);
 			path = Views;
@@ -145,7 +151,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1400;
 				ORGANIZATIONNAME = "Razeware, LLC";
 				TargetAttributes = {
 					428D692F211660200052D54F = {
@@ -177,9 +183,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42D0E17223C9E84F00CED935 /* Main.storyboard in Resources */,
+				4650D38828D8A43800A1F308 /* LaunchScreen.storyboard in Resources */,
+				4650D38628D8A41D00A1F308 /* Main.storyboard in Resources */,
 				428D69572119FEA80052D54F /* Assets.xcassets in Resources */,
-				428D69552119FE9F0052D54F /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +202,8 @@
 				4227AF1A239B6C7700AC0854 /* Question.swift in Sources */,
 				4227AF17239B6C2700AC0854 /* QuestionGroupData.swift in Sources */,
 				428D69592119FF5D0052D54F /* QuestionView.swift in Sources */,
+				4650D38228D8A40000A1F308 /* SelectQuestionGroupViewController.swift in Sources */,
+				4650D38528D8A41D00A1F308 /* QuestionGroupCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +236,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -289,6 +298,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
