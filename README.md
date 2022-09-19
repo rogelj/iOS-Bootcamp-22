@@ -20,5 +20,7 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 - [Week 05](Week_05) - Layout and Navigation
 
+- [Week 06](Week_06) - Design Patterns and Architecture
+
   
 
