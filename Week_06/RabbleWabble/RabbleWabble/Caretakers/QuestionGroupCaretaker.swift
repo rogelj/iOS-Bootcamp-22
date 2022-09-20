@@ -28,50 +28,31 @@
 
 import Foundation
 
-public class AppSettings {
-  // MARK: - Keys
-  private struct Keys {
-    static let questionStrategy = "questionStrategy"
-  }
-  
-  // MARK: - Static Properties
-  public static let shared = AppSettings()
-  
-  // MARK: - Instance Properties
-  public var questionStrategyType: QuestionStrategyType {
-    get {
-      let rawValue = userDefaults.integer(forKey: Keys.questionStrategy)
-      return QuestionStrategyType(rawValue: rawValue)!
-    } set {
-      userDefaults.set(newValue.rawValue, forKey: Keys.questionStrategy)
-    }
-  }
-  private let userDefaults = UserDefaults.standard
+public final class QuestionGroupCaretaker {
+  // MARK: - Properties
+  public let fileName = "QuestionGroupData"
+  public var questionGroups: [QuestionGroup] = []
+  public var selectedQuestionGroup: QuestionGroup!
   
   // MARK: - Object Lifecycle
-  private init() { }
-  
-  // MARK: - Instance Properties
-  public func questionStrategy(for questionGroupCaretaker: QuestionGroupCaretaker) -> QuestionStrategy {
-    return questionStrategyType.questionStrategy(for: questionGroupCaretaker)
-  }
-}
-
-public enum QuestionStrategyType: Int, CaseIterable {
-  case random
-  case sequential
-  
-  public func title() -> String {
-    switch self {
-    case .random:  return "Random"
-    case .sequential:  return "Sequential"
-    }
+  public init() {
+    loadQuestionGroups()
   }
   
-  public func questionStrategy(for questionGroupCaretaker: QuestionGroupCaretaker) -> QuestionStrategy {
-    switch self {
-    case .random: return RandomQuestionStrategy(questionGroupCaretaker: questionGroupCaretaker)
-    case .sequential:  return SequentialQuestionStrategy(questionGroupCaretaker: questionGroupCaretaker)
+  private func loadQuestionGroups() {
+    if let questionGroups = try? DiskCaretaker.retrieve([QuestionGroup].self, from: fileName) {
+      self.questionGroups = questionGroups
+      return
     }
+    
+    let bundle = Bundle.main
+    let url = bundle.url(forResource: fileName, withExtension: "json")!
+    self.questionGroups = try! DiskCaretaker.retrieve([QuestionGroup].self, from: url)
+    try! save()
+  }
+  
+  // MARK: - Instance Methods
+  public func save() throws {
+    try DiskCaretaker.save(questionGroups, to: fileName)
   }
 }

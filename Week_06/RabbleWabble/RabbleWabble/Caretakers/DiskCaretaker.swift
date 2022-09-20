@@ -28,50 +28,42 @@
 
 import Foundation
 
-public class AppSettings {
-  // MARK: - Keys
-  private struct Keys {
-    static let questionStrategy = "questionStrategy"
+public final class DiskCaretaker {
+  public static let decoder = JSONDecoder()
+  public static let encoder = JSONEncoder()
+  
+  public static func createDocumentURL(withFileName fileName: String) -> URL {
+    let fileManager = FileManager.default
+    let url = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+    return url.appendingPathComponent(fileName).appendingPathExtension("json")
   }
   
-  // MARK: - Static Properties
-  public static let shared = AppSettings()
-  
-  // MARK: - Instance Properties
-  public var questionStrategyType: QuestionStrategyType {
-    get {
-      let rawValue = userDefaults.integer(forKey: Keys.questionStrategy)
-      return QuestionStrategyType(rawValue: rawValue)!
-    } set {
-      userDefaults.set(newValue.rawValue, forKey: Keys.questionStrategy)
+  public static func save<T: Codable>(_ object: T, to fileName: String) throws {
+    let url = createDocumentURL(withFileName: fileName)
+    do {
+      let data = try encoder.encode(object)
+      try data.write(to: url)
+    } catch (let error) {
+      print("Save failed: Object: \(object), Error: \(error)")
+      throw error
     }
   }
-  private let userDefaults = UserDefaults.standard
   
-  // MARK: - Object Lifecycle
-  private init() { }
+  public static func retrieve<T: Codable>(_ type: T.Type, from fileName: String) throws -> T {
+    let url = createDocumentURL(withFileName: fileName)
+    return try retrieve(type, from: url)
+  }
   
-  // MARK: - Instance Properties
-  public func questionStrategy(for questionGroupCaretaker: QuestionGroupCaretaker) -> QuestionStrategy {
-    return questionStrategyType.questionStrategy(for: questionGroupCaretaker)
+  public static func retrieve<T: Codable>(_ type: T.Type, from url: URL) throws -> T {
+    do {
+      let data = try Data(contentsOf: url)
+      return try decoder.decode(T.self, from: data)
+    } catch (let error) {
+      print("Retrieve failed: URL: \(url), Error: \(error)")
+      throw error
+    }
   }
 }
 
-public enum QuestionStrategyType: Int, CaseIterable {
-  case random
-  case sequential
-  
-  public func title() -> String {
-    switch self {
-    case .random:  return "Random"
-    case .sequential:  return "Sequential"
-    }
-  }
-  
-  public func questionStrategy(for questionGroupCaretaker: QuestionGroupCaretaker) -> QuestionStrategy {
-    switch self {
-    case .random: return RandomQuestionStrategy(questionGroupCaretaker: questionGroupCaretaker)
-    case .sequential:  return SequentialQuestionStrategy(questionGroupCaretaker: questionGroupCaretaker)
-    }
-  }
-}
+
+
