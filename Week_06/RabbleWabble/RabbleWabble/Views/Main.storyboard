@@ -101,7 +101,15 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="630" y="133"/>
+            <point key="canvasLocation" x="1094" y="133"/>
+        </scene>
+        <!--NewQuestionGroup-->
+        <scene sceneID="MtH-ux-D1D">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewQuestionGroup" id="Mm1-5D-1oI" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJM-ez-wNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="51" y="-311"/>
         </scene>
         <!--Select Question Group-->
         <scene sceneID="KcR-yc-L0J">
@@ -171,6 +179,11 @@
                         <barButtonItem key="leftBarButtonItem" image="ic_settings" id="Ayq-CN-HRs">
                             <connections>
                                 <segue destination="53s-3j-D1V" kind="show" id="Y5M-zB-HQF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rQF-p7-Tbs">
+                            <connections>
+                                <segue destination="Mm1-5D-1oI" kind="presentation" id="xWt-YK-dMc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
