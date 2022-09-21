@@ -12,6 +12,7 @@
 		46843D5A28DB11A700470A62 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5928DB11A700470A62 /* Business.swift */; };
 		46843D5C28DB11F500470A62 /* BusinessSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5B28DB11F500470A62 /* BusinessSearchClient.swift */; };
 		46843D5E28DB123500470A62 /* YLPClient+BusinessSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5D28DB123500470A62 /* YLPClient+BusinessSearchClient.swift */; };
+		46843D6028DB16DA00470A62 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5F28DB16DA00470A62 /* Filter.swift */; };
 		C35933852023BF5700D85500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35933842023BF5700D85500 /* AppDelegate.swift */; };
 		C35933872023BF5700D85500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35933862023BF5700D85500 /* ViewController.swift */; };
 		C359338A2023BF5700D85500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35933882023BF5700D85500 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 		46843D5928DB11A700470A62 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		46843D5B28DB11F500470A62 /* BusinessSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearchClient.swift; sourceTree = "<group>"; };
 		46843D5D28DB123500470A62 /* YLPClient+BusinessSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YLPClient+BusinessSearchClient.swift"; sourceTree = "<group>"; };
+		46843D5F28DB16DA00470A62 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		75B5478A401116797B732C06 /* Pods-CoffeeQuest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeQuest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeQuest/Pods-CoffeeQuest.debug.xcconfig"; sourceTree = "<group>"; };
 		C35933812023BF5700D85500 /* CoffeeQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35933842023BF5700D85500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				46843D5928DB11A700470A62 /* Business.swift */,
+				46843D5F28DB16DA00470A62 /* Filter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				46843D5A28DB11A700470A62 /* Business.swift in Sources */,
 				C35933872023BF5700D85500 /* ViewController.swift in Sources */,
 				C35933852023BF5700D85500 /* AppDelegate.swift in Sources */,
+				46843D6028DB16DA00470A62 /* Filter.swift in Sources */,
 				46843D5E28DB123500470A62 /* YLPClient+BusinessSearchClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
