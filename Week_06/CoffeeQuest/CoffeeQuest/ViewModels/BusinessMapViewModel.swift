@@ -62,7 +62,7 @@ extension BusinessMapViewModel: MKAnnotation {
   public var title: String? {
     return name
   }
-
+  
   public var subtitle: String? {
     return ratingDescription
   }

@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		4252EAAA2023E05900847430 /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4252EAA92023E05900847430 /* APIKeys.swift */; };
 		46843D5528DB0C0100470A62 /* AnnotationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5428DB0C0100470A62 /* AnnotationFactory.swift */; };
+		46843D5A28DB11A700470A62 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5928DB11A700470A62 /* Business.swift */; };
+		46843D5C28DB11F500470A62 /* BusinessSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5B28DB11F500470A62 /* BusinessSearchClient.swift */; };
+		46843D5E28DB123500470A62 /* YLPClient+BusinessSearchClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46843D5D28DB123500470A62 /* YLPClient+BusinessSearchClient.swift */; };
 		C35933852023BF5700D85500 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35933842023BF5700D85500 /* AppDelegate.swift */; };
 		C35933872023BF5700D85500 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35933862023BF5700D85500 /* ViewController.swift */; };
 		C359338A2023BF5700D85500 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C35933882023BF5700D85500 /* Main.storyboard */; };
 		C359338C2023BF5700D85500 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C359338B2023BF5700D85500 /* Assets.xcassets */; };
 		C359338F2023BF5700D85500 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C359338D2023BF5700D85500 /* LaunchScreen.storyboard */; };
-		C35933972023D71C00D85500 /* MapPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35933962023D71C00D85500 /* MapPin.swift */; };
+		C35933972023D71C00D85500 /* BusinessMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35933962023D71C00D85500 /* BusinessMapViewModel.swift */; };
 		C38756A0E9013F2F1E6253E0 /* Pods_CoffeeQuest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7C9278042C96775D875EE9F /* Pods_CoffeeQuest.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,6 +25,9 @@
 		0EB69E332F1CF61F584429C4 /* Pods-CoffeeQuest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeQuest.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeQuest/Pods-CoffeeQuest.release.xcconfig"; sourceTree = "<group>"; };
 		4252EAA92023E05900847430 /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		46843D5428DB0C0100470A62 /* AnnotationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationFactory.swift; sourceTree = "<group>"; };
+		46843D5928DB11A700470A62 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		46843D5B28DB11F500470A62 /* BusinessSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessSearchClient.swift; sourceTree = "<group>"; };
+		46843D5D28DB123500470A62 /* YLPClient+BusinessSearchClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "YLPClient+BusinessSearchClient.swift"; sourceTree = "<group>"; };
 		75B5478A401116797B732C06 /* Pods-CoffeeQuest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoffeeQuest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoffeeQuest/Pods-CoffeeQuest.debug.xcconfig"; sourceTree = "<group>"; };
 		C35933812023BF5700D85500 /* CoffeeQuest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeQuest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35933842023BF5700D85500 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +36,7 @@
 		C359338B2023BF5700D85500 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C359338E2023BF5700D85500 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C35933902023BF5700D85500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C35933962023D71C00D85500 /* MapPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPin.swift; sourceTree = "<group>"; };
+		C35933962023D71C00D85500 /* BusinessMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessMapViewModel.swift; sourceTree = "<group>"; };
 		C7C9278042C96775D875EE9F /* Pods_CoffeeQuest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoffeeQuest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -65,7 +71,7 @@
 		4252EAA62023DFEE00847430 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				C35933962023D71C00D85500 /* MapPin.swift */,
+				C35933962023D71C00D85500 /* BusinessMapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -95,6 +101,30 @@
 				46843D5428DB0C0100470A62 /* AnnotationFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		46843D5628DB118400470A62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				46843D5928DB11A700470A62 /* Business.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		46843D5728DB119000470A62 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				46843D5D28DB123500470A62 /* YLPClient+BusinessSearchClient.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		46843D5828DB119600470A62 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				46843D5B28DB11F500470A62 /* BusinessSearchClient.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		5FEA8354D6F6EA2089B72C93 /* Frameworks */ = {
@@ -137,6 +167,9 @@
 		C35933832023BF5700D85500 /* CoffeeQuest */ = {
 			isa = PBXGroup;
 			children = (
+				46843D5828DB119600470A62 /* Protocols */,
+				46843D5728DB119000470A62 /* Adapters */,
+				46843D5628DB118400470A62 /* Models */,
 				46843D5328DB0BF000470A62 /* Factories */,
 				4252EAA42023DFE500847430 /* AppDelegate */,
 				4252EAA52023DFE800847430 /* Controllers */,
@@ -261,11 +294,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C35933972023D71C00D85500 /* MapPin.swift in Sources */,
+				C35933972023D71C00D85500 /* BusinessMapViewModel.swift in Sources */,
+				46843D5C28DB11F500470A62 /* BusinessSearchClient.swift in Sources */,
 				4252EAAA2023E05900847430 /* APIKeys.swift in Sources */,
 				46843D5528DB0C0100470A62 /* AnnotationFactory.swift in Sources */,
+				46843D5A28DB11A700470A62 /* Business.swift in Sources */,
 				C35933872023BF5700D85500 /* ViewController.swift in Sources */,
 				C35933852023BF5700D85500 /* AppDelegate.swift in Sources */,
+				46843D5E28DB123500470A62 /* YLPClient+BusinessSearchClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
