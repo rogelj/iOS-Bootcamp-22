@@ -60,12 +60,12 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		4252EAA62023DFEE00847430 /* Models */ = {
+		4252EAA62023DFEE00847430 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
 				C35933962023D71C00D85500 /* MapPin.swift */,
 			);
-			path = Models;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		4252EAA72023DFF400847430 /* Views */ = {
@@ -129,7 +129,7 @@
 			children = (
 				4252EAA42023DFE500847430 /* AppDelegate */,
 				4252EAA52023DFE800847430 /* Controllers */,
-				4252EAA62023DFEE00847430 /* Models */,
+				4252EAA62023DFEE00847430 /* ViewModels */,
 				4252EAA82023DFFB00847430 /* Resources */,
 				4252EAA72023DFF400847430 /* Views */,
 			);
@@ -180,6 +180,7 @@
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 				Base,
 			);
 			mainGroup = C35933782023BF5700D85500;
