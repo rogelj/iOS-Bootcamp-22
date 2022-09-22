@@ -22,6 +22,10 @@
 		46D100C128DC7C240065E111 /* ClearState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D100BC28DC7C240065E111 /* ClearState.swift */; };
 		46D100C328DC80000065E111 /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D100C228DC80000065E111 /* DrawView.swift */; };
 		46D100C528DC9CB60065E111 /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D100C428DC9CB60065E111 /* MulticastDelegate.swift */; };
+		46D100C828DCA1540065E111 /* DrawingSelectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46D100C628DCA1540065E111 /* DrawingSelectionViewController.xib */; };
+		46D100C928DCA1540065E111 /* ImageRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D100C728DCA1540065E111 /* ImageRenderer.swift */; };
+		46D100CB28DCA16A0065E111 /* DrawingSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D100CA28DCA16A0065E111 /* DrawingSelectionViewController.swift */; };
+		46D100CD28DCA1AF0065E111 /* SharedFacade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D100CC28DCA1AF0065E111 /* SharedFacade.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +46,10 @@
 		46D100BC28DC7C240065E111 /* ClearState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClearState.swift; sourceTree = "<group>"; };
 		46D100C228DC80000065E111 /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
 		46D100C428DC9CB60065E111 /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MulticastDelegate.swift; sourceTree = "<group>"; };
+		46D100C628DCA1540065E111 /* DrawingSelectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrawingSelectionViewController.xib; sourceTree = "<group>"; };
+		46D100C728DCA1540065E111 /* ImageRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRenderer.swift; sourceTree = "<group>"; };
+		46D100CA28DCA16A0065E111 /* DrawingSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawingSelectionViewController.swift; sourceTree = "<group>"; };
+		46D100CC28DCA1AF0065E111 /* SharedFacade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFacade.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,9 @@
 		4245EC7C2074417100E347D0 /* Facades */ = {
 			isa = PBXGroup;
 			children = (
+				46D100CA28DCA16A0065E111 /* DrawingSelectionViewController.swift */,
+				46D100C728DCA1540065E111 /* ImageRenderer.swift */,
+				46D100CC28DCA1AF0065E111 /* SharedFacade.swift */,
 			);
 			path = Facades;
 			sourceTree = "<group>";
@@ -124,6 +135,7 @@
 				46D100AC28DC7B4A0065E111 /* DrawView */,
 				42F35C3E20449C9A00584FAD /* LaunchScreen.storyboard */,
 				42F35C3920449C9A00584FAD /* Main.storyboard */,
+				46D100C628DCA1540065E111 /* DrawingSelectionViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -220,6 +232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D100C828DCA1540065E111 /* DrawingSelectionViewController.xib in Resources */,
 				42F35C4020449C9A00584FAD /* LaunchScreen.storyboard in Resources */,
 				42F35C3D20449C9A00584FAD /* Assets.xcassets in Resources */,
 				42F35C3B20449C9A00584FAD /* Main.storyboard in Resources */,
@@ -233,10 +246,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46D100CB28DCA16A0065E111 /* DrawingSelectionViewController.swift in Sources */,
 				42F35C3820449C9A00584FAD /* ViewController.swift in Sources */,
 				424387E72044A1ED0056B653 /* LineShape.swift in Sources */,
 				46D100C328DC80000065E111 /* DrawView.swift in Sources */,
+				46D100CD28DCA1AF0065E111 /* SharedFacade.swift in Sources */,
 				42ED238324C97DE700DE3C41 /* Copying.swift in Sources */,
+				46D100C928DCA1540065E111 /* ImageRenderer.swift in Sources */,
 				46D100C028DC7C240065E111 /* AnimateState.swift in Sources */,
 				46D100C128DC7C240065E111 /* ClearState.swift in Sources */,
 				46D100BF28DC7C240065E111 /* AcceptInputState.swift in Sources */,
