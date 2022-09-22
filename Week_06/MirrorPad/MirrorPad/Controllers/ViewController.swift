@@ -58,7 +58,7 @@ public class ViewController: UIViewController {
   }
 
   @IBAction public func sharePressed(_ sender: Any) {
-    shareFacade.presentShareController()    
+    shareFacade.presentShareController()
   }
   
   // MARK: - View Lifecycle
