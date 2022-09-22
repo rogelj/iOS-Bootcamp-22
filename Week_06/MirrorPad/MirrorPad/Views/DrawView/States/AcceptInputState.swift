@@ -18,10 +18,6 @@
 /// merger, publication, distribution, sublicensing, creation of derivative works,
 /// or sale is expressly withheld.
 /// 
-/// This project and source code may use libraries or frameworks that are
-/// released under various Open-Source licenses. Use of those libraries and
-/// frameworks are governed by their own individual licenses.
-///
 /// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 /// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 /// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,45 +27,37 @@
 /// THE SOFTWARE.
 
 import UIKit
-
-public class LineShape: CAShapeLayer, Copying {
-
-  // MARK: - Instance Properties
-  private let bezierPath: UIBezierPath
-
-  // MARK: - Object Lifecycle
-  public init(color: UIColor, width: CGFloat, startPoint: CGPoint) {
-    bezierPath = UIBezierPath()
-    bezierPath.move(to: startPoint)
-    super.init()
-
-    fillColor = nil
-    lineWidth = width
-    path = bezierPath.cgPath
-    strokeColor = color.cgColor
-  }
-
-  public override convenience init(layer: Any) {
-    let lineShape = layer as! LineShape
-    self.init(lineShape)
+public class AcceptInputState: DrawViewState {
+  public override func animate() {
+    let animateState = transitionToState(matching: AnimateState.identifier)
+    animateState.animate()
   }
   
-  public required init(_ prototype: LineShape) {
-    bezierPath = prototype.bezierPath.copy() as! UIBezierPath
-    super.init(layer: prototype)
-    fillColor = nil
-    lineWidth = prototype.lineWidth
-    path = bezierPath.cgPath
-    strokeColor = prototype.strokeColor
+  public override func clear() {
+    let clearState = transitionToState(matching: ClearState.identifier)
+    clearState.clear()
   }
-
-  public required init?(coder aDecoder: NSCoder) {
-    fatalError("init(coder:) is not supported")
+  
+  public override func copyLines(from source: DrawView) {
+    let copyState = transitionToState(matching: CopyState.identifier)
+    copyState.copyLines(from: source)
   }
-
-  // MARK: - Instance Methods
-  public func addPoint(_ point: CGPoint) {
-    bezierPath.addLine(to: point)
-    path = bezierPath.cgPath
+  
+  public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    guard let point = touches.first?.location(in: drawView) else { return }
+    let line = LineShape(color: drawView.lineColor,
+                         width: drawView.lineWidth,
+                         startPoint: point)
+    drawView.lines.append(line)
+    drawView.layer.addSublayer(line)
+  }
+  
+  public override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    guard let point = touches.first?.location(in: drawView),
+      drawView.bounds.contains(point),
+      let currentLine = drawView.lines.last else {
+        return
+    }
+    currentLine.addPoint(point)    
   }
 }
