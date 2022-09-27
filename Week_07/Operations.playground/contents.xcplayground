@@ -3,5 +3,6 @@
     <pages>
         <page name='Explore Operations'/>
         <page name='Creating a complex operation'/>
+        <page name='Explore Operation Queue'/>
     </pages>
 </playground>
