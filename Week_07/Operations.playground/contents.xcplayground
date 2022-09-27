@@ -6,5 +6,6 @@
         <page name='Explore Operation Queue'/>
         <page name='TiltShift Operation in Queues'/>
         <page name='Create ASync Operation '/>
+        <page name='Download Images'/>
     </pages>
 </playground>
