@@ -3,5 +3,6 @@
     <pages>
         <page name='Use Dispatch Queues'/>
         <page name='Use Dispatch Work Item '/>
+        <page name='Create Async Function'/>
     </pages>
 </playground>
