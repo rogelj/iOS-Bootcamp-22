@@ -6,5 +6,6 @@
         <page name='Wrap Async function'/>
         <page name='Images'/>
         <page name='Semaphores'/>
+        <page name='Priority inversion '/>
     </pages>
 </playground>
