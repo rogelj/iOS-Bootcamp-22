@@ -7,5 +7,6 @@
         <page name='Images'/>
         <page name='Semaphores'/>
         <page name='Priority inversion '/>
+        <page name='Thread Safe'/>
     </pages>
 </playground>
