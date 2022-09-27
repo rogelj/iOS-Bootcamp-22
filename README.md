@@ -22,5 +22,7 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 - [Week 06](Week_06) - Design Patterns and Architecture
 
+- [Week 07](Week_07) - Concurrency with GCD and Operations
+
   
 
