@@ -4,5 +4,6 @@
         <page name='Use Group of Tasks'/>
         <page name='Dispatch group waiting'/>
         <page name='Wrap Async function'/>
+        <page name='Images'/>
     </pages>
 </playground>
