@@ -35,8 +35,11 @@ import SwiftUI
 struct SongDetailView: View {
   // MARK: Properties
   @Binding var musicItem: MusicItem
+
   @MainActor @State private var playMusic = false
   @MainActor @State private var isDownloading: Bool = false
+  @MainActor @State private var showDownloadFailAlert = false
+
   @ObservedObject private var downloader: SongDownloader = SongDownloader()
 
   // MARK: Body
@@ -64,6 +67,11 @@ struct SongDetailView: View {
               Text(downloader.downloadLocation == nil ? "Download" : "Listen")
             }
           })
+          .alert("Download Failed", isPresented: $showDownloadFailAlert) {
+            Button("Dismiss", role: .cancel) {
+              showDownloadFailAlert = false
+            }
+          }
           .disabled(isDownloading)
 
           if isDownloading {
@@ -91,7 +99,13 @@ struct SongDetailView: View {
         return
       }
 
-      await downloader.downloadSong(at: previewURL)
+      do {
+        try await downloader.downloadSong(at: previewURL)
+      } catch let error {
+        print(error)
+
+        showDownloadFailAlert = true
+      }
     } else {
       playMusic = true
     }
