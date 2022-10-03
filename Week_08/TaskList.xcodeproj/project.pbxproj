@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46CCB54A28EAE4F300D4FB2A /* Tasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 46CCB54828EAE4F300D4FB2A /* Tasks.json */; };
+		46CCB54B28EAE4F300D4FB2A /* PrioritizedTasks.json in Resources */ = {isa = PBXBuildFile; fileRef = 46CCB54928EAE4F300D4FB2A /* PrioritizedTasks.json */; };
 		491C6E2322DEB81A00C55030 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491C6E2222DEB81A00C55030 /* Task.swift */; };
 		491C6E2522DED24E00C55030 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491C6E2422DED24E00C55030 /* TaskStore.swift */; };
 		491C6E2722DEF0F200C55030 /* NewTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491C6E2622DEF0F200C55030 /* NewTaskView.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		46CCB54828EAE4F300D4FB2A /* Tasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tasks.json; sourceTree = "<group>"; };
+		46CCB54928EAE4F300D4FB2A /* PrioritizedTasks.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PrioritizedTasks.json; sourceTree = "<group>"; };
 		491C6E2222DEB81A00C55030 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		491C6E2422DED24E00C55030 /* TaskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 		491C6E2622DEF0F200C55030 /* NewTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTaskView.swift; sourceTree = "<group>"; };
@@ -153,6 +157,8 @@
 				49A2856622DC34F700B65A77 /* Assets.xcassets */,
 				5589F392233061D4008D3719 /* Task.json */,
 				5589F394233063AA008D3719 /* PrioritizedTask.json */,
+				46CCB54928EAE4F300D4FB2A /* PrioritizedTasks.json */,
+				46CCB54828EAE4F300D4FB2A /* Tasks.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -225,9 +231,11 @@
 			files = (
 				5589F393233061D4008D3719 /* Task.json in Resources */,
 				49A2856D22DC34F700B65A77 /* LaunchScreen.storyboard in Resources */,
+				46CCB54A28EAE4F300D4FB2A /* Tasks.json in Resources */,
 				5589F395233063AA008D3719 /* PrioritizedTask.json in Resources */,
 				49A2856A22DC34F700B65A77 /* Preview Assets.xcassets in Resources */,
 				49A2856722DC34F700B65A77 /* Assets.xcassets in Resources */,
+				46CCB54B28EAE4F300D4FB2A /* PrioritizedTasks.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
