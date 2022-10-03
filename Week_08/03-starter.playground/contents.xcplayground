@@ -3,5 +3,6 @@
     <pages>
         <page name='More modern concurrency'/>
         <page name='Using Playlist'/>
+        <page name='Main Actor'/>
     </pages>
 </playground>
