@@ -29,6 +29,7 @@
 // LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
+
 import SwiftUI
 
 // MARK: Song Detail View
@@ -36,54 +37,91 @@ struct SongDetailView: View {
   // MARK: Properties
   @Binding var musicItem: MusicItem
 
-  @MainActor @State private var playMusic = false
-  @MainActor @State private var isDownloading: Bool = false
-  @MainActor @State private var showDownloadFailAlert = false
+  @ObservedObject private var downloader = SongDownloader()
 
-  @ObservedObject private var downloader: SongDownloader = SongDownloader()
+  // swiftlint:disable:next force_unwrapping
+  @MainActor @State private var artworkImage = UIImage(named: "URLSessionArtwork")!
+  @MainActor @State private var isDownloading = false
+  @MainActor @State private var playMusic = false
+  @MainActor @State private var showDownloadFailedAlert = false
 
   // MARK: Body
   var body: some View {
+    // swiftlint:disable:next trailing_closure
     VStack {
       GeometryReader { reader in
         VStack {
-          Image("URLSessionArtwork")
+          Image(uiImage: artworkImage)
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(width: reader.size.width, height: reader.size.height * 0.2)
             .shadow(radius: 10)
-          Text(musicItem.trackName)
-          Text(musicItem.artistName)
-          Text(musicItem.collectionName)
-          Spacer()
-          Button(action: {
-            Task {
-              await downloadTapped()
-            }
-          }, label: {
-            if isDownloading {
-              Text("Downloading...")
-            } else {
-              Text(downloader.downloadLocation == nil ? "Download" : "Listen")
-            }
-          })
-          .alert("Download Failed", isPresented: $showDownloadFailAlert) {
-            Button("Dismiss", role: .cancel) {
-              showDownloadFailAlert = false
-            }
-          }
-          .disabled(isDownloading)
 
-          if isDownloading {
-            ProgressView()
+          Text(musicItem.trackName)
+
+          Text(musicItem.artistName)
+
+          Text(musicItem.collectionName)
+
+          Spacer()
+
+          HStack(spacing: 10) {
+            Button(action: {
+              Task {
+                await downloadTapped()
+              }
+            }, label: {
+              if isDownloading {
+                Text("Downloading...")
+              } else {
+                Text(downloader.downloadLocation == nil ? "Download" : "Listen")
+              }
+            })
+            .alert("Download Failed", isPresented: $showDownloadFailedAlert) {
+              Button("Dismiss", role: .cancel) {
+                showDownloadFailedAlert = false
+              }
+            }
+            .disabled(isDownloading)
+
+            if isDownloading {
+              ProgressView()
+            }
           }
+
           Spacer()
         }
       }
     }
     .padding()
+    .onAppear(perform: {
+      Task {
+        await downloadArtwork()
+      }
+    })
     .sheet(isPresented: $playMusic) {
+      // swiftlint:disable:next force_unwrapping
       AudioPlayer(songUrl: downloader.downloadLocation!)
+    }
+  }
+
+  // MARK: Functions
+  private func downloadArtwork() async {
+    guard let artworkURL = URL(string: musicItem.artwork) else {
+      return
+    }
+
+    // RESOLVED: Challenge - Download Images
+    do {
+      let data = try await downloader.downloadArtwork(at: artworkURL)
+
+      guard let image = UIImage(data: data) else {
+        return
+      }
+
+      artworkImage = image
+    } catch {
+//      print(error)
     }
   }
 
@@ -101,10 +139,10 @@ struct SongDetailView: View {
 
       do {
         try await downloader.downloadSong(at: previewURL)
-      } catch let error {
+      } catch {
         print(error)
 
-        showDownloadFailAlert = true
+        showDownloadFailedAlert = true
       }
     } else {
       playMusic = true
@@ -118,11 +156,13 @@ struct SongDetailView_Previews: PreviewProvider {
   struct PreviewWrapper: View {
     // MARK: Properties
     @State private var musicItem = MusicItem.demo()
+
     // MARK: Body
     var body: some View {
       SongDetailView(musicItem: $musicItem)
     }
   }
+
   // MARK: Previews
   static var previews: some View {
     PreviewWrapper()
