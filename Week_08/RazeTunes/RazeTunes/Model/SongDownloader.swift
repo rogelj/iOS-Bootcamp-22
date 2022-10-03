@@ -60,6 +60,55 @@ class SongDownloader: ObservableObject {
   }
 
   // MARK: Functions
+  func download(songAt songURL: URL, artworkAt artworkURL: URL) async throws -> Data {
+    typealias Download = (_ url: URL, _ response: URLResponse)
+
+    async let song: Download = try session.download(from: songURL)
+    async let artwork: Download = try session.download(from: artworkURL)
+
+    let (songDownload, artworkDownload) = try await (song, artwork)
+
+    guard let songHTTPResponse = songDownload.response as? HTTPURLResponse,
+      let artworkHTTPResponse = artworkDownload.response as? HTTPURLResponse,
+      songHTTPResponse.statusCode == 200,
+      artworkHTTPResponse.statusCode == 200
+    else {
+      throw SongDownloadError.invalidResponse
+    }
+
+    let fileManager = FileManager.default
+
+    guard let documentsPath = fileManager.urls(
+      for: .documentDirectory,
+      in: .userDomainMask).first
+    else {
+      throw SongDownloadError.documentDirectoryError
+    }
+
+    let lastPathComponent = songURL.lastPathComponent
+    let destinationURL = documentsPath.appendingPathComponent(lastPathComponent)
+
+    do {
+      if fileManager.fileExists(atPath: destinationURL.path) {
+        try fileManager.removeItem(at: destinationURL)
+      }
+
+      try await fileManager.copyItem(at: song.url, to: destinationURL)
+    } catch {
+      throw SongDownloadError.failedToStoreSong
+    }
+
+    await MainActor.run {
+      downloadLocation = destinationURL
+    }
+
+    do {
+      return try Data(contentsOf: artworkDownload.url)
+    } catch {
+      throw ArtworkDownloadError.failedToDownloadArtwork
+    }
+  }
+
   func downloadArtwork(at url: URL) async throws -> Data {
     let (downloadURL, response) = try await session.download(from: url)
 
@@ -130,7 +179,10 @@ class SongDownloader: ObservableObject {
 
     let fileManager = FileManager.default
 
-    guard let documentsPath = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first else {
+    guard let documentsPath = fileManager.urls(
+      for: .documentDirectory,
+      in: .userDomainMask).first
+    else {
       throw SongDownloadError.documentDirectoryError
     }
 
@@ -141,13 +193,14 @@ class SongDownloader: ObservableObject {
       if fileManager.fileExists(atPath: destinationURL.path) {
         try fileManager.removeItem(at: destinationURL)
       }
-      try data.write(to: destinationURL)
 
-      await MainActor.run {
-        downloadLocation = destinationURL
-      }
+      try data.write(to: destinationURL)
     } catch {
       throw SongDownloadError.failedToStoreSong
+    }
+
+    await MainActor.run {
+      downloadLocation = destinationURL
     }
   }
 }

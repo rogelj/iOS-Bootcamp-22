@@ -48,7 +48,6 @@ struct SongDetailView: View {
 
   // MARK: Body
   var body: some View {
-    // swiftlint:disable:next trailing_closure
     VStack {
       GeometryReader { reader in
         VStack {
@@ -66,10 +65,10 @@ struct SongDetailView: View {
 
           Spacer()
 
-          HStack(spacing: 10) {
+          VStack(spacing: 16) {
             Button(action: {
               Task {
-                await downloadTapped()
+                await downloadSongTapped()
               }
             }, label: {
               if isDownloading {
@@ -95,11 +94,11 @@ struct SongDetailView: View {
       }
     }
     .padding()
-    .onAppear(perform: {
-      Task {
-        await downloadArtwork()
-      }
-    })
+    // .onAppear(perform: {
+    //   Task {
+    //     await downloadArtwork()
+    //   }
+    // })
     .sheet(isPresented: $playMusic) {
       // swiftlint:disable:next force_unwrapping
       AudioPlayer(songUrl: downloader.downloadLocation!)
@@ -125,6 +124,38 @@ struct SongDetailView: View {
     }
   }
 
+  private func downloadSongTapped() async {
+    if downloader.downloadLocation == nil {
+      guard let artworkURL = URL(string: musicItem.artwork),
+        let previewURL = musicItem.previewURL
+      else {
+        return
+      }
+
+      isDownloading = true
+
+      defer {
+        isDownloading = false
+      }
+
+      do {
+        let data = try await downloader.download(songAt: previewURL, artworkAt: artworkURL)
+
+        guard let image = UIImage(data: data) else {
+          return
+        }
+
+        artworkImage = image
+      } catch {
+        print(error)
+
+        showDownloadFailedAlert = true
+      }
+    } else {
+      playMusic = true
+    }
+  }
+
   private func downloadTapped() async {
     if downloader.downloadLocation == nil {
       isDownloading = true
@@ -138,6 +169,7 @@ struct SongDetailView: View {
       }
 
       do {
+        // try await downloader.downloadSong(at: previewURL)
         try await downloader.downloadSongBytes(at: previewURL, progress: $downloadProgress)
       } catch {
         print(error)
