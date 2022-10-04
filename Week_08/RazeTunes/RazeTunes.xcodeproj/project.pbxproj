@@ -13,6 +13,7 @@
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
 		4628063F28EB244900259D93 /* SongDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4628063E28EB244900259D93 /* SongDownloader.swift */; };
+		4666B8BD28EC353B004DA4A8 /* MutableSongDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4666B8BC28EC353B004DA4A8 /* MutableSongDownloader.swift */; };
 		55F69FCB27BF44110080353B /* MediaResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F69FCA27BF44110080353B /* MediaResponse.swift */; };
 		55F69FCD27BF44280080353B /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F69FCC27BF44280080353B /* AudioPlayer.swift */; };
 		55F69FCF27BF443E0080353B /* SongDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F69FCE27BF443E0080353B /* SongDetailView.swift */; };
@@ -27,6 +28,7 @@
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4628063E28EB244900259D93 /* SongDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDownloader.swift; sourceTree = "<group>"; };
+		4666B8BC28EC353B004DA4A8 /* MutableSongDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableSongDownloader.swift; sourceTree = "<group>"; };
 		55F69FCA27BF44110080353B /* MediaResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaResponse.swift; sourceTree = "<group>"; };
 		55F69FCC27BF44280080353B /* AudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlayer.swift; sourceTree = "<group>"; };
 		55F69FCE27BF443E0080353B /* SongDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			children = (
 				55F69FCA27BF44110080353B /* MediaResponse.swift */,
 				4628063E28EB244900259D93 /* SongDownloader.swift */,
+				4666B8BC28EC353B004DA4A8 /* MutableSongDownloader.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4666B8BD28EC353B004DA4A8 /* MutableSongDownloader.swift in Sources */,
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
 				55F69FCF27BF443E0080353B /* SongDetailView.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
