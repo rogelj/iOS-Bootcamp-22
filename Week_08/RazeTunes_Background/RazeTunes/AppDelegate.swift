@@ -30,15 +30,31 @@
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
 
-import SwiftUI
+import UIKit
 
-@main
-struct AppMain: App {
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+class AppDelegate: NSObject, UIApplicationDelegate {
+  var backgroundCompletionHandler: (() -> Void)?
   
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
+  func application(_ application: UIApplication,
+                   handleEventsForBackgroundURLSession identifier: String,
+                   completionHandler: @escaping () -> Void) {
+    print("URLSession identifier: \(identifier)")
+    
+    backgroundCompletionHandler = completionHandler
+  }
+  
+  func application(_ application: UIApplication,
+                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(backgroundSongDidDownload),
+                                           name: MutableSongDownloader.BackgroundSongDownloadDidFinish, object: nil)
+    
+    return true
+  }
+  
+  @objc private func backgroundSongDidDownload() {
+    if let backgroundCompletionHandler = backgroundCompletionHandler {
+      backgroundCompletionHandler()
     }
   }
 }

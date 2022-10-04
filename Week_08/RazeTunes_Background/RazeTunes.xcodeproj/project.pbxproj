@@ -12,6 +12,7 @@
 		18D775C722AD944400AE281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C622AD944400AE281E /* Assets.xcassets */; };
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
+		46CA844228EC7848004E57DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46CA844128EC7848004E57DF /* AppDelegate.swift */; };
 		55040F0D27C07B06006F6D1B /* MutableSongDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55040F0C27C07B06006F6D1B /* MutableSongDownloader.swift */; };
 		55040F0F27C07C7E006F6D1B /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55040F0E27C07C7E006F6D1B /* RatingView.swift */; };
 		55040F1127C07D5E006F6D1B /* RatingUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55040F1027C07D5E006F6D1B /* RatingUploader.swift */; };
@@ -29,6 +30,7 @@
 		18D775C922AD944400AE281E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		46CA844128EC7848004E57DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		55040F0C27C07B06006F6D1B /* MutableSongDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MutableSongDownloader.swift; sourceTree = "<group>"; };
 		55040F0E27C07C7E006F6D1B /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		55040F1027C07D5E006F6D1B /* RatingUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingUploader.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				18D775CE22AD944400AE281E /* Info.plist */,
+				46CA844128EC7848004E57DF /* AppDelegate.swift */,
 				1839F4AF25190F2A00BB00F1 /* AppMain.swift */,
 				18D775C422AD944300AE281E /* ContentView.swift */,
 				18D775C622AD944400AE281E /* Assets.xcassets */,
@@ -212,6 +215,7 @@
 				1839F4B025190F2A00BB00F1 /* AppMain.swift in Sources */,
 				55A792FB27BF46BD004B8731 /* SongDownloader.swift in Sources */,
 				55F69FCB27BF44110080353B /* MediaResponse.swift in Sources */,
+				46CA844228EC7848004E57DF /* AppDelegate.swift in Sources */,
 				55F69FCD27BF44280080353B /* AudioPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
