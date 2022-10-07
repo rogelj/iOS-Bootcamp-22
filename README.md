@@ -24,5 +24,7 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 - [Week 07](Week_07) - Concurrency with GCD and Operations
 
+- [Week 08](Week_08) - Networking and Animation
+
   
 
