@@ -29,8 +29,15 @@
 import Combine
 import Foundation
 
-class TaskStore: ObservableObject {    
-    @Published var prioritizedTasks: [PrioritizedTasks] = []
+class TaskStore: ObservableObject {
+    let tasksJSONURL = URL(fileURLWithPath: "PrioritizedTasks",
+                           relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+    
+    @Published var prioritizedTasks: [PrioritizedTasks] = [] {
+        didSet {
+            saveJSONPrioritizedTask()
+        }
+    }
     
     init() {
         loadJSONPrioritizedTasks()
@@ -76,17 +83,41 @@ class TaskStore: ObservableObject {
     
     // MARK: - Private Methods
     private func loadJSONPrioritizedTasks() {
-        guard let tasksJSONURL = Bundle.main.url(forResource: "PrioritizedTasks",
-                                                 withExtension: "json")
-        else {
-            return
-        }
+        print(Bundle.main.bundleURL)
+        print(FileManager.documentsDirectoryURL)
+
+        let temporaryDirectoryURL = FileManager.default.temporaryDirectory
+        print(temporaryDirectoryURL)
+
+//        guard let tasksJSONURL = Bundle.main.url(forResource: "PrioritizedTasks",
+//                                                 withExtension: "json")
+//        else {
+//            return
+//        }
+
+
+        print((try? FileManager.default.contentsOfDirectory(atPath: FileManager.documentsDirectoryURL.path)) ?? [])
         
         let decoder = JSONDecoder()
         
         do {
             let tasksData = try Data(contentsOf: tasksJSONURL)
             prioritizedTasks = try decoder.decode([PrioritizedTasks].self, from: tasksData)
+        } catch let error {
+            print(error)
+        }
+    }
+
+    private func saveJSONPrioritizedTask() {
+        let encoder = JSONEncoder()
+
+        do {
+            let taskData = try encoder.encode(prioritizedTasks.first?.tasks.last)
+
+            let taskJSONURL = URL(fileURLWithPath: "Task",
+                                  relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+
+            try taskData.write(to: taskJSONURL, options: .atomicWrite)
         } catch let error {
             print(error)
         }
