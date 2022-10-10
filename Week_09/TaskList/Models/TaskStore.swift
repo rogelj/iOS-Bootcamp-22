@@ -32,10 +32,10 @@ import Foundation
 class TaskStore: ObservableObject {
     let tasksJSONURL = URL(fileURLWithPath: "PrioritizedTasks",
                            relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
-    
+
     @Published var prioritizedTasks: [PrioritizedTasks] = [] {
         didSet {
-            saveJSONPrioritizedTask()
+            saveJSONPrioritizedTasks()
         }
     }
     
@@ -108,16 +108,18 @@ class TaskStore: ObservableObject {
         }
     }
 
-    private func saveJSONPrioritizedTask() {
+    private func saveJSONPrioritizedTasks() {
         let encoder = JSONEncoder()
+        encoder.outputFormatting = .prettyPrinted
 
         do {
-            let taskData = try encoder.encode(prioritizedTasks.first?.tasks.last)
+//            let taskData = try encoder.encode(prioritizedTasks.first?.tasks.last)
+            let tasksData = try encoder.encode(prioritizedTasks)
 
-            let taskJSONURL = URL(fileURLWithPath: "Task",
-                                  relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
+//            let taskJSONURL = URL(fileURLWithPath: "Task",
+//                                  relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
-            try taskData.write(to: taskJSONURL, options: .atomicWrite)
+            try tasksData.write(to: tasksJSONURL, options: .atomicWrite)
         } catch let error {
             print(error)
         }
