@@ -33,6 +33,9 @@ class TaskStore: ObservableObject {
     let tasksJSONURL = URL(fileURLWithPath: "PrioritizedTasks",
                            relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
+    let tasksPListURL = URL(fileURLWithPath: "PrioritizedTasks",
+                            relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("plist")
+
     @Published var prioritizedTasks: [PrioritizedTasks] = [
         PrioritizedTasks(priority: .high, tasks: []),
         PrioritizedTasks(priority: .medium, tasks: []),
@@ -40,12 +43,14 @@ class TaskStore: ObservableObject {
         PrioritizedTasks(priority: .no, tasks: [])
     ] {
         didSet {
-            saveJSONPrioritizedTasks()
+//            saveJSONPrioritizedTasks()
+            savePListPrioritizedTasks()
         }
     }
     
     init() {
-        loadJSONPrioritizedTasks()
+//        loadJSONPrioritizedTasks()
+        loadPListPrioritizedTasks()
     }
     
     // Original Hardcoded Data
@@ -100,13 +105,26 @@ class TaskStore: ObservableObject {
 //            return
 //        }
 
-
         print((try? FileManager.default.contentsOfDirectory(atPath: FileManager.documentsDirectoryURL.path)) ?? [])
         
         let decoder = JSONDecoder()
         
         do {
             let tasksData = try Data(contentsOf: tasksJSONURL)
+            prioritizedTasks = try decoder.decode([PrioritizedTasks].self, from: tasksData)
+        } catch let error {
+            print(error)
+        }
+    }
+
+    private func loadPListPrioritizedTasks() {
+        guard FileManager.default.fileExists(atPath: tasksPListURL.path) else {
+            return
+        }
+        let decoder = PropertyListDecoder()
+
+        do {
+            let tasksData = try Data(contentsOf: tasksPListURL)
             prioritizedTasks = try decoder.decode([PrioritizedTasks].self, from: tasksData)
         } catch let error {
             print(error)
@@ -125,6 +143,19 @@ class TaskStore: ObservableObject {
 //                                  relativeTo: FileManager.documentsDirectoryURL).appendingPathExtension("json")
 
             try tasksData.write(to: tasksJSONURL, options: .atomicWrite)
+        } catch let error {
+            print(error)
+        }
+    }
+
+    private func savePListPrioritizedTasks() {
+        let encoder = PropertyListEncoder()
+        encoder.outputFormat = .xml
+
+        do {
+            let tasksData = try encoder.encode(prioritizedTasks)
+
+            try tasksData.write(to: tasksPListURL, options: .atomicWrite)
         } catch let error {
             print(error)
         }
