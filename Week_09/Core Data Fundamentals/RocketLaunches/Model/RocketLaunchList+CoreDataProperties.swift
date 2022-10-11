@@ -29,25 +29,16 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
+//
 
+import Foundation
 import CoreData
-import SwiftUI
 
-extension RocketLaunch {
-  static func createWith(
-    name: String,
-    notes: String,
-    launchDate: Date,
-    isViewed: Bool,
-    launchpad: String,
-    using managedObjectContext: NSManagedObjectContext
-  ) {
-    let launch = RocketLaunch(context: managedObjectContext)
-    launch.name = name
-    launch.notes = notes
-    launch.launchDate = launchDate
-    launch.isViewed = isViewed
-    launch.launchpad = launchpad
+
+extension RocketLaunchList {
+  static func create(withTitle title: String, in managedObjectContext: NSManagedObjectContext) {
+    let newLaunchList = self.init(context: managedObjectContext)
+    newLaunchList.title = title
 
     do {
       try managedObjectContext.save()
@@ -57,34 +48,47 @@ extension RocketLaunch {
     }
   }
 
-  static func basicFetchRequest() -> FetchRequest<RocketLaunch> {
-    return FetchRequest<RocketLaunch>(entity: RocketLaunch.entity(), sortDescriptors: [])
+  @nonobjc
+  public class func fetchRequest() -> NSFetchRequest<RocketLaunchList> {
+    return NSFetchRequest<RocketLaunchList>(entityName: "RocketLaunchList")
   }
 
-  static func sortedFetchRequest() -> FetchRequest<RocketLaunch> {
-    let launchDateSortDescriptor = NSSortDescriptor(key: "launchDate", ascending: true)
-    return FetchRequest(entity: RocketLaunch.entity(), sortDescriptors: [launchDateSortDescriptor])
-  }
+  @NSManaged public var title: String?
+  @NSManaged public var launches: [RocketLaunch]
+}
 
-  static func fetchRequestSortedByNameAndLaunchDate() -> FetchRequest<RocketLaunch> {
-    let nameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-    let launchDateSortDescriptor = NSSortDescriptor(key: "launchDate", ascending: true)
-    return FetchRequest(entity: RocketLaunch.entity(), sortDescriptors: [nameSortDescriptor, launchDateSortDescriptor])
-  }
+// MARK: Generated accessors for launches
+extension RocketLaunchList {
+  @objc(insertObject:inLaunchesAtIndex:)
+  @NSManaged public func insertIntoLaunches(_ value: RocketLaunch, at idx: Int)
 
-  static func unViewedLaunchesFetchRequest() -> FetchRequest<RocketLaunch> {
-    let nameSortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-    let launchDateSortDescriptor = NSSortDescriptor(key: "launchDate", ascending: false)
-    let isViewedPredicate = NSPredicate(format: "%K == %@", "isViewed", NSNumber(value: false))
-    return FetchRequest(
-      entity: RocketLaunch.entity(),
-      sortDescriptors: [nameSortDescriptor, launchDateSortDescriptor],
-      predicate: isViewedPredicate)
-  }
+  @objc(removeObjectFromLaunchesAtIndex:)
+  @NSManaged public func removeFromLaunches(at idx: Int)
 
-  @NSManaged public var name: String?
-  @NSManaged public var isViewed: Bool
-  @NSManaged public var launchDate: Date?
-  @NSManaged public var launchpad: String?
-  @NSManaged public var notes: String?
+  @objc(insertLaunches:atIndexes:)
+  @NSManaged public func insertIntoLaunches(_ values: [RocketLaunch], at indexes: NSIndexSet)
+
+  @objc(removeLaunchesAtIndexes:)
+  @NSManaged public func removeFromLaunches(at indexes: NSIndexSet)
+
+  @objc(replaceObjectInLaunchesAtIndex:withObject:)
+  @NSManaged public func replaceLaunches(at idx: Int, with value: RocketLaunch)
+
+  @objc(replaceLaunchesAtIndexes:withLaunches:)
+  @NSManaged public func replaceLaunches(at indexes: NSIndexSet, with values: [RocketLaunch])
+
+  @objc(addLaunchesObject:)
+  @NSManaged public func addToLaunches(_ value: RocketLaunch)
+
+  @objc(removeLaunchesObject:)
+  @NSManaged public func removeFromLaunches(_ value: RocketLaunch)
+
+  @objc(addLaunches:)
+  @NSManaged public func addToLaunches(_ values: NSOrderedSet)
+
+  @objc(removeLaunches:)
+  @NSManaged public func removeFromLaunches(_ values: NSOrderedSet)
+}
+
+extension RocketLaunchList: Identifiable {
 }

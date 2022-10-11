@@ -34,24 +34,27 @@ import SwiftUI
 
 struct LaunchesView: View {
   @State var isShowingCreateModal = false
+  @State var activeSortIndex = 0
   let launchesFetchRequest = RocketLaunch.unViewedLaunchesFetchRequest()
   var launches: FetchedResults<RocketLaunch> {
     launchesFetchRequest.wrappedValue
   }
 
-//: Using property wrappers
-//  @FetchRequest(entity: RocketLaunch.entity(), sortDescriptors: [])
-//  var launches: FetchedResults<RocketLaunch>
+  let sortTypes = [
+    (name: "Name", descriptors: [SortDescriptor(\RocketLaunch.name, order: .forward)]),
+    (name: "LaunchDate", descriptors: [SortDescriptor(\RocketLaunch.launchDate, order: .forward)])
+  ]
 
   var body: some View {
     VStack {
       List {
         Section {
           ForEach(launches, id: \.self) { launch in
-            HStack {
-              NavigationLink(destination: LaunchDetailView(launch: launch)) {
+            NavigationLink(destination: LaunchDetailView(launch: launch)) {
+              HStack {
                 LaunchStatusView(isViewed: launch.isViewed)
                 Text("\(launch.name ?? "")")
+                Spacer()
               }
             }
           }
@@ -65,6 +68,25 @@ struct LaunchesView: View {
       .padding(.leading)
     }
     .navigationBarTitle(Text("Launches"))
+    .onChange(of: activeSortIndex) { _ in
+      launches.sortDescriptors = sortTypes[activeSortIndex].descriptors
+    }
+    .toolbar {
+      Menu(content: {
+        Picker(
+          selection: $activeSortIndex,
+          content: {
+            ForEach(0..<sortTypes.count, id: \.self) { index in
+              let sortType = sortTypes[index]
+              Text(sortType.name)
+            }
+          },
+          label: {}
+        )
+      }, label: {
+        Image(systemName: "line.3.horizontal.decrease.circle.fill")
+      })
+    }
   }
 }
 
@@ -72,7 +94,7 @@ struct LaunchesView_Previews: PreviewProvider {
   static var previews: some View {
     let context = PersistenceController.preview.container.viewContext
     let newLaunch = RocketLaunch(context: context)
-    newLaunch.name = "A really cool launch"
+    newLaunch.name = "A really cool launch!"
     return LaunchesView()
   }
 }
@@ -90,8 +112,8 @@ struct NewLaunchButton: View {
           .font(.headline)
           .foregroundColor(.red)
       })
-      .sheet(isPresented: $isShowingCreateModal) {
-        LaunchCreateView()
-      }
+    .sheet(isPresented: $isShowingCreateModal) {
+      LaunchCreateView()
+    }
   }
 }
