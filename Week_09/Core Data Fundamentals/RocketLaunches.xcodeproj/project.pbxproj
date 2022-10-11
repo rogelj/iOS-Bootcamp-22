@@ -70,7 +70,6 @@
 		18D775B422AD944300AE281E = {
 			isa = PBXGroup;
 			children = (
-				46870EF728F4720400433E16 /* RocketLaunches.xcdatamodeld */,
 				18D775BF22AD944300AE281E /* RocketLaunches */,
 				AE5BF31427C47A17009B0282 /* RocketLaunchesTests */,
 				18D775BE22AD944300AE281E /* Products */,
@@ -91,6 +90,7 @@
 		18D775BF22AD944300AE281E /* RocketLaunches */ = {
 			isa = PBXGroup;
 			children = (
+				46870EF728F4720400433E16 /* RocketLaunches.xcdatamodeld */,
 				AEF7FB7727C184B6000CBF46 /* Views */,
 				18D775C422AD944300AE281E /* ContentView.swift */,
 				AEF7FB7827C184C1000CBF46 /* Model */,
