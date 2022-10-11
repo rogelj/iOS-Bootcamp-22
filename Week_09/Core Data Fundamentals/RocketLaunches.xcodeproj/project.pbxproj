@@ -12,11 +12,11 @@
 		18D775C722AD944400AE281E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C622AD944400AE281E /* Assets.xcassets */; };
 		18D775CA22AD944400AE281E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D775C922AD944400AE281E /* Preview Assets.xcassets */; };
 		18D775D822AD963800AE281E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18D775DA22AD963800AE281E /* LaunchScreen.storyboard */; };
-		460F12C028F5651F00E22E2B /* RocketLaunch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460F12BF28F5651F00E22E2B /* RocketLaunch+CoreDataClass.swift */; };
-		460F12C228F565A200E22E2B /* RocketLauncg+CoreaDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460F12C128F565A200E22E2B /* RocketLauncg+CoreaDataProperties.swift */; };
-		46870EF928F4720400433E16 /* RocketLaunches.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 46870EF728F4720400433E16 /* RocketLaunches.xcdatamodeld */; };
-		46870EFD28F472BD00433E16 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46870EFC28F472BD00433E16 /* Persistence.swift */; };
 		AE1D5CE827C2A1120033125A /* LaunchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1D5CE727C2A1120033125A /* LaunchDetailView.swift */; };
+		AE4A726027FA0536006EACBD /* RocketLaunches.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AE4A725E27FA0536006EACBD /* RocketLaunches.xcdatamodeld */; };
+		AE4A726227FA055B006EACBD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A726127FA055B006EACBD /* Persistence.swift */; };
+		AE4A726427FA0BFF006EACBD /* RocketLaunch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A726327FA0BFF006EACBD /* RocketLaunch+CoreDataClass.swift */; };
+		AE4A726627FA0C87006EACBD /* RocketLaunch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4A726527FA0C87006EACBD /* RocketLaunch+CoreDataProperties.swift */; };
 		AE5BF31627C47A17009B0282 /* RocketLaunchesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5BF31527C47A17009B0282 /* RocketLaunchesTests.swift */; };
 		AEF7FB8227C1856F000CBF46 /* LaunchesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF7FB8127C1856F000CBF46 /* LaunchesView.swift */; };
 		AEF7FB8627C18583000CBF46 /* LaunchCreateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF7FB8527C18583000CBF46 /* LaunchCreateView.swift */; };
@@ -41,11 +41,11 @@
 		18D775C922AD944400AE281E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		18D775CE22AD944400AE281E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18D775DE22AD96B400AE281E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		460F12BF28F5651F00E22E2B /* RocketLaunch+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocketLaunch+CoreDataClass.swift"; sourceTree = "<group>"; };
-		460F12C128F565A200E22E2B /* RocketLauncg+CoreaDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocketLauncg+CoreaDataProperties.swift"; sourceTree = "<group>"; };
-		46870EF828F4720400433E16 /* RocketLaunches.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RocketLaunches.xcdatamodel; sourceTree = "<group>"; };
-		46870EFC28F472BD00433E16 /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		AE1D5CE727C2A1120033125A /* LaunchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchDetailView.swift; sourceTree = "<group>"; };
+		AE4A725F27FA0536006EACBD /* RocketLaunches.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RocketLaunches.xcdatamodel; sourceTree = "<group>"; };
+		AE4A726127FA055B006EACBD /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		AE4A726327FA0BFF006EACBD /* RocketLaunch+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocketLaunch+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AE4A726527FA0C87006EACBD /* RocketLaunch+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RocketLaunch+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AE5BF31327C47A17009B0282 /* RocketLaunchesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RocketLaunchesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE5BF31527C47A17009B0282 /* RocketLaunchesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketLaunchesTests.swift; sourceTree = "<group>"; };
 		AEF7FB8127C1856F000CBF46 /* LaunchesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchesView.swift; sourceTree = "<group>"; };
@@ -94,7 +94,6 @@
 		18D775BF22AD944300AE281E /* RocketLaunches */ = {
 			isa = PBXGroup;
 			children = (
-				46870EF728F4720400433E16 /* RocketLaunches.xcdatamodeld */,
 				AEF7FB7727C184B6000CBF46 /* Views */,
 				18D775C422AD944300AE281E /* ContentView.swift */,
 				AEF7FB7827C184C1000CBF46 /* Model */,
@@ -103,6 +102,7 @@
 				18D775DA22AD963800AE281E /* LaunchScreen.storyboard */,
 				18D775CE22AD944400AE281E /* Info.plist */,
 				18D775C822AD944400AE281E /* Preview Content */,
+				AE4A725E27FA0536006EACBD /* RocketLaunches.xcdatamodeld */,
 			);
 			path = RocketLaunches;
 			sourceTree = "<group>";
@@ -134,9 +134,9 @@
 		AEF7FB7827C184C1000CBF46 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				46870EFC28F472BD00433E16 /* Persistence.swift */,
-				460F12BF28F5651F00E22E2B /* RocketLaunch+CoreDataClass.swift */,
-				460F12C128F565A200E22E2B /* RocketLauncg+CoreaDataProperties.swift */,
+				AE4A726127FA055B006EACBD /* Persistence.swift */,
+				AE4A726327FA0BFF006EACBD /* RocketLaunch+CoreDataClass.swift */,
+				AE4A726527FA0C87006EACBD /* RocketLaunch+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,16 +275,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE4A726627FA0C87006EACBD /* RocketLaunch+CoreDataProperties.swift in Sources */,
 				18D775C522AD944300AE281E /* ContentView.swift in Sources */,
-				460F12C028F5651F00E22E2B /* RocketLaunch+CoreDataClass.swift in Sources */,
-				46870EFD28F472BD00433E16 /* Persistence.swift in Sources */,
-				46870EF928F4720400433E16 /* RocketLaunches.xcdatamodeld in Sources */,
+				AE4A726427FA0BFF006EACBD /* RocketLaunch+CoreDataClass.swift in Sources */,
+				AE4A726227FA055B006EACBD /* Persistence.swift in Sources */,
+				AE4A726027FA0536006EACBD /* RocketLaunches.xcdatamodeld in Sources */,
 				AEF7FB8227C1856F000CBF46 /* LaunchesView.swift in Sources */,
 				1839F4B025190F2A00BB00F1 /* RocketLaunchesApp.swift in Sources */,
 				AE1D5CE827C2A1120033125A /* LaunchDetailView.swift in Sources */,
 				AEF7FB8627C18583000CBF46 /* LaunchCreateView.swift in Sources */,
 				AEF7FB8A27C18598000CBF46 /* LaunchStatusView.swift in Sources */,
-				460F12C228F565A200E22E2B /* RocketLauncg+CoreaDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,12 +545,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		46870EF728F4720400433E16 /* RocketLaunches.xcdatamodeld */ = {
+		AE4A725E27FA0536006EACBD /* RocketLaunches.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				46870EF828F4720400433E16 /* RocketLaunches.xcdatamodel */,
+				AE4A725F27FA0536006EACBD /* RocketLaunches.xcdatamodel */,
 			);
-			currentVersion = 46870EF828F4720400433E16 /* RocketLaunches.xcdatamodel */;
+			currentVersion = AE4A725F27FA0536006EACBD /* RocketLaunches.xcdatamodel */;
 			path = RocketLaunches.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

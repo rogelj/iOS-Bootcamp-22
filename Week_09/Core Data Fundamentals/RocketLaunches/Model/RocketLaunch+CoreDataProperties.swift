@@ -33,10 +33,32 @@
 import CoreData
 
 extension RocketLaunch {
-  @NSManaged public var name: String
+  static func createWith(
+    name: String,
+    notes: String,
+    launchDate: Date,
+    isViewed: Bool,
+    launchpad: String,
+    using managedObjectContext: NSManagedObjectContext
+  ) {
+    let launch = RocketLaunch(context: managedObjectContext)
+    launch.name = name
+    launch.notes = notes
+    launch.launchDate = launchDate
+    launch.isViewed = isViewed
+    launch.launchpad = launchpad
+
+    do {
+      try managedObjectContext.save()
+    } catch {
+      let nserror = error as NSError
+      fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+    }
+  }
+
+  @NSManaged public var name: String?
   @NSManaged public var isViewed: Bool
   @NSManaged public var launchDate: Date?
   @NSManaged public var launchpad: String?
   @NSManaged public var notes: String?
-
 }
