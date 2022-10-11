@@ -32,68 +32,23 @@
 
 import SwiftUI
 
-struct ListView: View {
-  @FetchRequest(sortDescriptors: [])
-  var launchLists: FetchedResults<RocketLaunchList>
-
-  @FetchRequest(sortDescriptors: [], animation: .default)
-  var spaceXLaunchLists: FetchedResults<SpaceXLaunchList>
+struct LaunchStatusView: View {
+  var isViewed: Bool
 
   var body: some View {
-    Form {
-      Section("SpaceX Launch Lists") {
-        ForEach(spaceXLaunchLists, id: \.title) { launchList in
-          NavigationLink(
-            destination: SpaceXLaunchesView(launchList: launchList)
-          ) {
-            CircularImageView(color: Color(.red))
-            // swiftlint:disable:next force_unwrapping
-            Text(launchList.title!)
-          }
-        }
-      }
-      Section("Manual Launch Lists") {
-        ForEach(launchLists, id: \.self) { launchList in
-          NavigationLink(
-            destination: LaunchesView(launchList: launchList)
-          ) {
-            CircularImageView(color: Color(.red))
-            // swiftlint:disable:next force_unwrapping
-            Text(launchList.title!)
-          }
-        }
-        .onDelete(perform: delete)
-      }
-    }
-  }
-
-  func delete(at offsets: IndexSet) {
-    let lists = offsets.map { self.launchLists[$0] }
-    do {
-      try PersistenceController.deleteList(list: lists[0])
-    } catch {
-      print("Error deleting list")
-    }
+    Circle()
+      .padding(4)
+      .overlay(
+        Circle()
+          .stroke(isViewed ? .green : .red, lineWidth: 2)
+      )
+      .foregroundColor(isViewed ? .green : .clear)
+      .frame(width: 20, height: 20)
   }
 }
 
-struct CircularImageView: View {
-  var color: Color
-
-  var body: some View {
-    VStack {
-      Image(systemName: "list.bullet")
-        .foregroundColor(.white)
-    }
-    .padding(12)
-    .background(color)
-    .clipShape(Circle())
-  }
-}
-
-struct ListView_Previews: PreviewProvider {
+struct LaunchStatusView_Previews: PreviewProvider {
   static var previews: some View {
-    let context = PersistenceController.preview.container.viewContext
-    return ListView().environment(\.managedObjectContext, context)
+    LaunchStatusView(isViewed: true).previewLayout(.fixed(width: 300, height: 70))
   }
 }
