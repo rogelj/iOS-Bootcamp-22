@@ -32,7 +32,7 @@
 
 import Foundation
 
-struct SpaceXLaunchJSON: Codable {
+struct SpaceXLaunchJSON: BatchInsertable {
   var fairings: SpaceXFairingsJSON?
   var links: SpaceXLinksJSON
   var staticFireDateUTC: String?
@@ -121,7 +121,7 @@ struct SpaceXLaunchJSON: Codable {
   }
 }
 
-struct SpaceXFailureJSON: Codable {
+struct SpaceXFailureJSON: BatchInsertable {
   var time: Double?
   var altitude: Double?
   var reason: String?
@@ -135,7 +135,7 @@ struct SpaceXFailureJSON: Codable {
   }
 }
 
-struct SpaceXLaunchCoreJSON: Codable {
+struct SpaceXLaunchCoreJSON: BatchInsertable {
   var core: String?
   var flight: Int?
   var gridfins: Bool?

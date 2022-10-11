@@ -32,7 +32,7 @@
 
 import Foundation
 
-struct SpaceXLinksJSON: Codable {
+struct SpaceXLinksJSON: BatchInsertable {
   var patch: [String: String?]
   var reddit: [String: String?]
   var flickr: [String: [String]]
