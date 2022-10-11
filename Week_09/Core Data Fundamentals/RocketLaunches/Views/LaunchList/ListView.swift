@@ -31,64 +31,40 @@
 /// THE SOFTWARE.
 
 import SwiftUI
-import CoreData
 
-struct LaunchCreateView: View {
-  // MARK: - Environment -
-  @Environment(\.dismiss) var dismiss
-  @Environment(\.managedObjectContext) var viewContext
-
-  // MARK: - State -
-  @State var name: String = ""
-  @State var notes: String = ""
-  @State var isViewed = false
-  @State var launchDate = Date()
-  @State var launchpad: String = ""
-
-  let launchList: RocketLaunchList
+struct ListView: View {
+  @FetchRequest(sortDescriptors: [])
+  var launchLists: FetchedResults<RocketLaunchList>
 
   var body: some View {
-    NavigationView {
-      Form {
-        Section {
-          TextField("Title", text: $name)
-          TextField("Launch Pad", text: $launchpad)
-          TextField("Notes", text: $notes)
-        }
-        Section {
-          DatePicker(selection: $launchDate, displayedComponents: .date) {
-            Text("Date")
-          }
+    Form {
+      ForEach(launchLists , id: \.self) { launchList in
+        NavigationLink(destination: LaunchesView(launchList: launchList)){
+          CircularImageView(color: .red)
+          Text(launchList.title ?? "")
         }
       }
-      .background(Color(.systemGroupedBackground))
-      .navigationBarTitle(Text("Create Event"), displayMode: .inline)
-      .navigationBarItems(trailing:
-        Button(action: {
-          RocketLaunch.createWith(
-            name: self.name,
-            notes: self.notes,
-            launchDate: self.launchDate,
-            isViewed: false,
-            launchpad: self.launchpad,
-            in: self.launchList,
-            using: self.viewContext)
-          dismiss()
-        }, label: {
-          Text("Save")
-            .fontWeight(.bold)
-        })
-      )
     }
   }
 }
 
-struct LaunchCreateView_Previews: PreviewProvider {
+struct CircularImageView: View {
+  var color: Color
+
+  var body: some View {
+    VStack {
+      Image(systemName: "list.bullet")
+        .foregroundColor(.white)
+    }
+    .padding(12)
+    .background(color)
+    .clipShape(Circle())
+  }
+}
+
+struct ListView_Previews: PreviewProvider {
   static var previews: some View {
     let context = PersistenceController.preview.container.viewContext
-    let newLaunchList = RocketLaunchList(context: context)
-    newLaunchList.title = "Preview List"
-    return LaunchCreateView(launchList: newLaunchList)
-      .environment(\.managedObjectContext, context)
+    return ListView().environment(\.managedObjectContext, context)
   }
 }

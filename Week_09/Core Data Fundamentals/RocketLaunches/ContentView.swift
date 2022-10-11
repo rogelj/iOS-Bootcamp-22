@@ -38,9 +38,20 @@ struct ContentView: View {
 
   var body: some View {
     NavigationView {
-      LaunchesView()
+      ListView()
         .navigationBarTitle(Text("Launches"))
-        .navigationBarItems(leading: EditButton())
+        .navigationBarItems(
+          trailing:
+            HStack {
+              Button(
+                action: { self.isShowingListModal.toggle() },
+                label: { Image(systemName: "plus") }
+              )
+            }
+            .sheet(isPresented: $isShowingListModal) {
+              ListCreateView(text: "")
+            }
+        )
     }
   }
 }
@@ -50,3 +61,4 @@ struct ContentView_Previews: PreviewProvider {
     ContentView()
   }
 }
+
