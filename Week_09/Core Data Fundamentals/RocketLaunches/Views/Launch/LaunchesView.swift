@@ -34,7 +34,7 @@ import SwiftUI
 
 struct LaunchesView: View {
   @State var isShowingCreateModal = false
-  let launchesFetchRequest = RocketLaunch.fetchRequestSortedByNameAndLaunchDate()
+  let launchesFetchRequest = RocketLaunch.unViewedLaunchesFetchRequest()
   var launches: FetchedResults<RocketLaunch> {
     launchesFetchRequest.wrappedValue
   }
