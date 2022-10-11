@@ -31,6 +31,7 @@
 /// THE SOFTWARE.
 
 import CoreData
+import SwiftUI
 
 extension RocketLaunch {
   static func createWith(
@@ -54,6 +55,10 @@ extension RocketLaunch {
       let nserror = error as NSError
       fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
     }
+  }
+
+  static func basicFetchRequest() -> FetchRequest<RocketLaunch>{
+    FetchRequest(entity: RocketLaunch.entity(), sortDescriptors: [])
   }
 
   @NSManaged public var name: String?

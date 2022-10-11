@@ -34,13 +34,24 @@ import SwiftUI
 
 struct LaunchesView: View {
   @State var isShowingCreateModal = false
+  let launchesFetchRequest = RocketLaunch.basicFetchRequest()
+  var launches: FetchedResults<RocketLaunch> {
+    launchesFetchRequest.wrappedValue
+  }
+
+//: Using property wrappers
+//  @FetchRequest(entity: RocketLaunch.entity(), sortDescriptors: [])
+//  var launches: FetchedResults<RocketLaunch>
 
   var body: some View {
     VStack {
       List {
         Section {
-          ForEach(1...10, id: \.self) { _ in
-            Text("Test")
+          ForEach(launches, id: \.self) { launch in
+            HStack {
+              LaunchStatusView(isViewed: launch.isViewed)
+              Text("\(launch.name ?? "")")
+            }
           }
         }
       }
@@ -57,7 +68,10 @@ struct LaunchesView: View {
 
 struct LaunchesView_Previews: PreviewProvider {
   static var previews: some View {
-    LaunchesView()
+    let context = PersistenceController.preview.container.viewContext
+    let newLaunch = RocketLaunch(context: context)
+    newLaunch.name = "A really cool launch"
+    return LaunchesView()
   }
 }
 
