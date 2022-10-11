@@ -29,11 +29,33 @@
 /// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 /// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 /// THE SOFTWARE.
-//
 
-import Foundation
-import CoreData
+import SwiftUI
 
-@objc(Tag)
-public class Tag: NSManagedObject {
+struct TagsView: View {
+  @Environment(\.managedObjectContext) var viewContext
+  let tags: [Tag]
+
+  var body: some View {
+    VStack {
+      List {
+        Section {
+          ForEach(tags, id: \.self) { tag in
+            Text(tag.title ?? "")
+          }
+        }
+      }
+      .navigationBarTitle(Text("Tags"))
+    }
+  }
 }
+
+struct TagsView_Previews: PreviewProvider {
+  static var previews: some View {
+    let context = PersistenceController.preview.container.viewContext
+    let tag = Tag(context: context)
+    tag.title = "Test"
+    return TagsView(tags: [tag])
+  }
+}
+

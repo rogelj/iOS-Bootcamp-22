@@ -36,17 +36,22 @@ import CoreData
 
 
 extension Tag {
-
-  @nonobjc public class func fetchRequest() -> NSFetchRequest<Tag> {
+  @nonobjc
+  public class func fetchRequest() -> NSFetchRequest<Tag> {
     return NSFetchRequest<Tag>(entityName: "Tag")
   }
 
-  static func fetchOrCreateWith(title: String, in context: NSManagedObjectContext) -> Tag {
+  static func fetchOrCreateWith(
+    title: String,
+    in context: NSManagedObjectContext
+  ) -> Tag {
     let request: NSFetchRequest<Tag> = fetchRequest()
     let predicate = NSPredicate(format: "%K == %@", "title", title.lowercased())
     request.predicate = predicate
+
     do {
       let results = try context.fetch(request)
+
       if let tag = results.first {
         return tag
       } else {
@@ -55,19 +60,16 @@ extension Tag {
         return tag
       }
     } catch {
-      fatalError("Error fetching tags")
+      fatalError("Error fetching tag")
     }
   }
 
-
   @NSManaged public var title: String?
   @NSManaged public var launches: Set<RocketLaunch>
-
 }
 
 // MARK: Generated accessors for launches
 extension Tag {
-
   @objc(addLaunchesObject:)
   @NSManaged public func addToLaunches(_ value: RocketLaunch)
 
@@ -79,9 +81,7 @@ extension Tag {
 
   @objc(removeLaunches:)
   @NSManaged public func removeFromLaunches(_ values: NSSet)
-
 }
 
-extension Tag : Identifiable {
-
+extension Tag: Identifiable {
 }

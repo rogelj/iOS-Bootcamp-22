@@ -34,12 +34,21 @@ import SwiftUI
 
 struct LaunchesView: View {
   @State var isShowingCreateModal = false
+  @State var isShowingTagsModal = false
   @State var activeSortIndex = 0
-  let launchesFetchRequest: FetchRequest<RocketLaunch>
+  var launchesFetchRequest: FetchRequest<RocketLaunch>
   var launches: FetchedResults<RocketLaunch> {
     launchesFetchRequest.wrappedValue
   }
   let launchList: RocketLaunchList
+  var tags: [Tag] {
+    let tagsSet = launchList.launches.compactMap { $0.tags }.reduce(Set<Tag>(), { result, tags in
+      var result = result
+      result.formUnion(tags)
+      return result
+    })
+    return Array(tagsSet)
+  }
 
   let sortTypes = [
     (name: "Name", descriptors: [SortDescriptor(\RocketLaunch.name, order: .forward)]),
@@ -74,6 +83,14 @@ struct LaunchesView: View {
       .padding(.leading)
     }
     .navigationBarTitle(Text("Launches"))
+    .navigationBarItems(trailing:
+      Button("Tags") {
+        self.isShowingTagsModal.toggle()
+      }
+      .sheet(isPresented: self.$isShowingTagsModal, content: {
+        TagsView(tags: tags)
+      })
+    )
     .onChange(of: activeSortIndex) { _ in
       launches.sortDescriptors = sortTypes[activeSortIndex].descriptors
     }

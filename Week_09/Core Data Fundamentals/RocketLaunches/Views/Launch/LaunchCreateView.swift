@@ -72,13 +72,13 @@ struct LaunchCreateView: View {
           let tags = Set(self.tags.split(separator: ",").map {
             Tag.fetchOrCreateWith(title: String($0), in: self.viewContext)
           })
-
           RocketLaunch.createWith(
             name: self.name,
             notes: self.notes,
             launchDate: self.launchDate,
             isViewed: false,
             launchpad: self.launchpad,
+            tags: tags,
             in: self.launchList,
             using: self.viewContext)
           dismiss()
