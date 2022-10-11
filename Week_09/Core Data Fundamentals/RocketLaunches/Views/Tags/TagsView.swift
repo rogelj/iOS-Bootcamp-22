@@ -37,15 +37,17 @@ struct TagsView: View {
   let tags: [Tag]
 
   var body: some View {
-    VStack {
-      List {
-        Section {
-          ForEach(tags, id: \.self) { tag in
-            Text(tag.title ?? "")
+    NavigationView {
+      VStack {
+        List {
+          Section {
+            ForEach(tags, id: \.self) { tag in
+              Text("\(tag.title!) (\(tag.launchCount))")
+            }
           }
         }
+        .navigationBarTitle(Text("Tags"))
       }
-      .navigationBarTitle(Text("Tags"))
     }
   }
 }
