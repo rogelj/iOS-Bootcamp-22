@@ -34,7 +34,7 @@ import SwiftUI
 
 struct LaunchesView: View {
   @State var isShowingCreateModal = false
-  let launchesFetchRequest = RocketLaunch.basicFetchRequest()
+  let launchesFetchRequest = RocketLaunch.fetchRequestSortedByNameAndLaunchDate()
   var launches: FetchedResults<RocketLaunch> {
     launchesFetchRequest.wrappedValue
   }
@@ -49,8 +49,10 @@ struct LaunchesView: View {
         Section {
           ForEach(launches, id: \.self) { launch in
             HStack {
-              LaunchStatusView(isViewed: launch.isViewed)
-              Text("\(launch.name ?? "")")
+              NavigationLink(destination: LaunchDetailView(launch: launch)) {
+                LaunchStatusView(isViewed: launch.isViewed)
+                Text("\(launch.name ?? "")")
+              }
             }
           }
         }
