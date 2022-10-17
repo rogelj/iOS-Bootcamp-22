@@ -48,7 +48,7 @@ struct ContentView: View {
         leading: EditButton(),
         trailing:
           Button(action: {
-            self.modalIsPresented = false
+            self.modalIsPresented = true
           }, label: {
             Image(systemName: "plus")
           })
