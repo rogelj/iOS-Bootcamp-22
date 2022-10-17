@@ -26,5 +26,9 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 - [Week 08](Week_08) - Networking and Animation
 
+- [Week 09](Week_09) - Saving Data
+
+- [Week 10](Week_10) - Testing and Debugging
+
   
 

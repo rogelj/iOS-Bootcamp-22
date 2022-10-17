@@ -14,6 +14,7 @@ let challengeString: String = "To Do List"
 let challengeURL: URL = URL(fileURLWithPath: challengeString, relativeTo: FileManager.documentDirectoryURL).appendingPathExtension("txt")
 
 challengeURL.lastPathComponent
+challengeURL.path
 
 //: ## Data Types
 //: ### Integers
