@@ -32,20 +32,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D3C14DF11FD0B056004D35C6"
-               BuildableName = "DogYearsUnitTests.xctest"
-               BlueprintName = "DogYearsUnitTests"
+               BlueprintIdentifier = "46D53A1F2900372900058EA2"
+               BuildableName = "DogYearsUITests.xctest"
+               BlueprintName = "DogYearsUITests"
                ReferencedContainer = "container:DogYears.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
+            skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "46D53A1F2900372900058EA2"
-               BuildableName = "DogYearsUITests.xctest"
-               BlueprintName = "DogYearsUITests"
+               BlueprintIdentifier = "D3C14DF11FD0B056004D35C6"
+               BuildableName = "DogYearsUnitTests.xctest"
+               BlueprintName = "DogYearsUnitTests"
                ReferencedContainer = "container:DogYears.xcodeproj">
             </BuildableReference>
          </TestableReference>
