@@ -27,22 +27,77 @@
 /// THE SOFTWARE.
 
 import XCTest
+@testable import DogPatch
 
 final class AsynchronousTestCase: XCTestCase {
-  func test_noServerResponse() {
-    let expectation = expectation(description: "Server responds in reasonable time")
-    defer { waitForExpectations(timeout: 2) }
+  let timeout: TimeInterval = 2
 
+  var expectation: XCTestExpectation!
+
+  override func setUp() {
+    expectation = expectation(description: "Server responds in reasonable time")
+  }
+
+  func test_noServerResponse() {
     let url = URL(string: "doggone")!
     URLSession.shared.dataTask(with: url) { data, response, error in
-      defer { expectation.fulfill() }
+      defer { self.expectation.fulfill() }
       XCTAssertNil(data)
       XCTAssertNil(response)
       XCTAssertNotNil(error)
     }
     .resume()
+
+    waitForExpectations(timeout: timeout)
   }
 
+  func test_decodeDogs() {
+    let url = URL(string: "https://rawcdn.githack.com/raywenderlich/video-ti-materials/versions/5.0/15-test-doubles/Final/DogPatch/DogPatchTests/dogs.json")!
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      defer { self.expectation.fulfill() }
+      XCTAssertNil(error)
+      do {
+        let response = try XCTUnwrap(response as? HTTPURLResponse)
+        XCTAssertEqual(response.statusCode, 200)
 
+        let data = try XCTUnwrap(data)
+        XCTAssertNoThrow(
+          try JSONDecoder().decode([Dog].self, from: data)
+        )
+      } catch {
+
+      }
+    }
+    .resume()
+
+    waitForExpectations(timeout: timeout)
+  }
+
+  func test_404() {
+    let url = URL(string: "https://rawcdn.githack.com/raywenderlich/video-ti-materials/versions/5.0/15-test-doubles/Final/DogPatch/DogPatchTests/cats.json")!
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      defer { self.expectation.fulfill() }
+      XCTAssertNil(error)
+      do {
+        let response = try XCTUnwrap(response as? HTTPURLResponse)
+        XCTAssertEqual(response.statusCode, 404)
+
+        let data = try XCTUnwrap(data)
+        XCTAssertThrowsError(
+          try JSONDecoder().decode([Dog].self, from: data)
+        ) { error in
+          guard case DecodingError.dataCorrupted = error else {
+            XCTFail("\(error)")
+            return
+          }
+        }
+      } catch {
+
+      }
+    }
+    .resume()
+
+    waitForExpectations(timeout: timeout)
+  }
 
 }
