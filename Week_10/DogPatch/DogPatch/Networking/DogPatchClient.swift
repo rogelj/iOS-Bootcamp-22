@@ -33,20 +33,29 @@ protocol DogPatchService {
     @escaping ([Dog]?, Error?) -> Void) -> URLSessionDataTask
 }
 
+protocol DataTaskMaker {
+  func dataTask(
+    with url: URL,
+    completionHandler: @escaping @Sendable (Data?, URLResponse?, Error?) -> Void
+  ) -> URLSessionDataTask
+}
+
+extension URLSession: DataTaskMaker { }
+
 class DogPatchClient {
   let baseURL: URL
-  let session: URLSession
+  let session: DataTaskMaker
   let responseQueue: DispatchQueue?
   
   static let shared = DogPatchClient(
     baseURL: URL(string: "https://rawcdn.githack.com/raywenderlich/video-ti-materials/versions/5.0/15-test-doubles/Final/DogPatch/DogPatchTests/")!,
-    session: .shared,
+    session: URLSession.shared,
     responseQueue: .main
   )
   
   init(
     baseURL: URL,
-    session: URLSession,
+    session: DataTaskMaker,
     responseQueue: DispatchQueue?
   ) {
     self.baseURL = baseURL
