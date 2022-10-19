@@ -29,7 +29,11 @@
 import UIKit
 
 class CalculatorViewController: UIViewController {
-	@IBOutlet private weak var lblOutput: UILabel!
+    @IBOutlet private weak var lblOutput: UILabel! {
+        didSet {
+            lblOutput.accessibilityIdentifier = "output"
+        }
+    }
 	@IBOutlet private weak var lblHistory: UILabel!
 	@IBOutlet private weak var btnDog: UIButton!
 	@IBOutlet private weak var btnCat: UIButton!

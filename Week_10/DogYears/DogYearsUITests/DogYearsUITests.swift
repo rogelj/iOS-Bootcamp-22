@@ -37,20 +37,37 @@ final class DogYearsUITests: XCTestCase {
 
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
-
-
     func test_navigationBackToMenu() throws {
+        let isiPad = UIDevice.current.userInterfaceIdiom == .pad
+        let isPortrait = XCUIDevice.shared.orientation.isPortrait
+
         let masterNavBar = app.navigationBars["Master"]
-        let menuButton = masterNavBar.buttons["Menu"]
-        menuButton.tap()
+
+        switch (isiPad, isPortrait) {
+        case (true, true):
+            masterNavBar.buttons["Master"].tap()
+        case (true, false):
+            break
+        case (false, _):
+            masterNavBar.buttons["Menu"].tap()
+        }
 
         XCTAssertFalse(masterNavBar.exists)
         XCTAssert(app.navigationBars["Menu"].exists)
+    }
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func test_calculatorEntry() {
+        app.buttons["2"].tap()
+        app.staticTexts["4"].tap()
+        XCTAssertEqual(
+            app
+                .staticTexts
+                .matching(identifier: "output")
+                .firstMatch
+                .label,
+            "24"
+        )
     }
 }
