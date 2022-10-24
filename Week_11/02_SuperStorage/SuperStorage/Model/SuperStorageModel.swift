@@ -36,6 +36,7 @@ import Foundation
 class SuperStorageModel: ObservableObject {
   /// The list of currently running downloads.
   @Published var downloads: [DownloadInfo] = []
+  @TaskLocal static var supportsPartialDownloads = false
 
   /// Fetches a list of available files
   func availableFiles() async throws -> [DownloadFile] {
@@ -117,6 +118,9 @@ class SuperStorageModel: ObservableObject {
         await self.updateDownload(name: name, progress: progress)
       }
       print(accumulator.description)
+    }
+    if stopDownloads, !Self.supportsPartialDownloads {
+      throw CancellationError()
     }
     return accumulator.data
   }
