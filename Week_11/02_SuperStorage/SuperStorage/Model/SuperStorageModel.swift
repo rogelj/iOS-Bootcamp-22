@@ -107,7 +107,7 @@ class SuperStorageModel: ObservableObject {
     // Add code here, replacing placeholder return statement
     var asyncDownloadIterator = result.downloadStream.makeAsyncIterator()
     let accumulator = ByteAccumulator(name: name, size: size)
-    while !stopDownloads,
+    while await !stopDownloads,
           !accumulator.checkCompleted() {
       while !accumulator.isBatchCompleted,
             let byte = try await asyncDownloadIterator.next() {
@@ -119,7 +119,7 @@ class SuperStorageModel: ObservableObject {
       }
       print(accumulator.description)
     }
-    if stopDownloads, !Self.supportsPartialDownloads {
+    if await stopDownloads, !Self.supportsPartialDownloads {
       throw CancellationError()
     }
     return accumulator.data
@@ -142,9 +142,9 @@ class SuperStorageModel: ObservableObject {
   }
 
   /// Flag that stops ongoing downloads.
-  var stopDownloads = false
+  @MainActor var stopDownloads = false
 
-  func reset() {
+  @MainActor func reset() {
     stopDownloads = false
     downloads.removeAll()
   }
