@@ -89,3 +89,16 @@ fastlane/test_output
 
 iOSInjectionProject/
 Week_06/CoffeeQuest/CoffeeQuest/Resources/APIKeys.swift
+Week_11/CourseServer/.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
+Week_11/CourseServer/Package.swift
+Week_11/CourseServer/Sources/App/configure.swift
+Week_11/CourseServer/Sources/App/routes.swift
+Week_11/CourseServer/Sources/App/Routes/.gitkeep
+Week_11/CourseServer/Sources/App/Routes/Blabber.swift
+Week_11/CourseServer/Sources/App/Routes/Clipper.swift
+Week_11/CourseServer/Sources/App/Routes/EasterEgg.swift
+Week_11/CourseServer/Sources/App/Routes/Gallery.swift
+Week_11/CourseServer/Sources/App/Routes/Hello.swift
+Week_11/CourseServer/Sources/App/Routes/LittleJohn.swift
+Week_11/CourseServer/Sources/App/Routes/SuperStorage.swift
+Week_11/CourseServer/Sources/Run/main.swift
