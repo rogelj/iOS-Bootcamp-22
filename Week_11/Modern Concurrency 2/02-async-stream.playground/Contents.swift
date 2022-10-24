@@ -62,16 +62,59 @@ struct TypewriterIterator: AsyncIteratorProtocol {
   }
 }
 
-// Comment out this Task before running AsyncStreams
-Task {
-  for try await item in Typewriter(phrase: "Hello, world!") {
-    print(item)
-  }
-  print("AsyncSequence Done")
-}
+//// Comment out this Task before running AsyncStreams
+//Task {
+//  for try await item in Typewriter(phrase: "Hello, world!") {
+//    print(item)
+//  }
+//  print("AsyncSequence Done")
+//}
 //: ## Two Kinds of AsyncStream
 let phrase = "Hello, world!"
 var index = phrase.startIndex
 // Typewriter with push-based AsyncStream
+let stream_push = AsyncStream<String> { continuation in
+    Task {
+        while index < phrase.endIndex {
+            do {
+                try await Task.sleep(until: .now + .seconds(1), clock: .continuous)
+                continuation.yield(String(phrase[phrase.startIndex...index]))
+                index = phrase.index(after: index)
+            } catch {
+                continuation.finish()
+            }
+        }
+        continuation.finish()
+    }
+}
+
+//Task {
+//    for try await item in stream_push {
+//        print(item)
+//    }
+//    print("Push AsyncStream Done")
+//}
 
 // Typewriter with pull-based AsyncStream
+let stream_pull = AsyncStream<String> {
+    guard index < phrase.endIndex else { return nil }
+    do {
+        try await Task.sleep(until: .now + .seconds(1), clock: .continuous)
+        //    try await Task.sleep(nanoseconds: 1_000_000_000)
+    } catch {
+        return nil
+    }
+    defer { index = phrase.index(after: index) }
+    return String(phrase[phrase.startIndex...index])
+}
+
+//Task {
+//    for try await item in stream_pull {
+//        print(item)
+//    }
+//    print("Pull AsyncStream Done")
+//}
+
+//: The pull-based AsyncStream code never runs at all. It runs only when the Task asks for the next value.
+//: The while loop in the push-based AsyncStream closure runs 13 times, creating the stream of Strings.
+//: It does this even though there’s no Task asking for the values.
