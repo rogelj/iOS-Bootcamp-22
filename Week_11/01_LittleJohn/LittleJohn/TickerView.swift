@@ -71,5 +71,16 @@ struct TickerView: View {
     .font(.custom("FantasqueSansMono-Regular", size: 18))
     .padding(.horizontal)
     // TODO: Call model.startTicker(selectedSymbols)
+    .task {
+      do {
+        try await model.startTicker(selectedSymbols)
+      } catch {
+        if let error = error as? URLError,
+           error.code == .cancelled {
+          return
+        }
+        lastErrorMessage = error.localizedDescription
+      }
+    }
   }
 }
