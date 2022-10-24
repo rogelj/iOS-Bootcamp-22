@@ -30,5 +30,9 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 - [Week 10](Week_10) - Testing and Debugging
 
+- [Week 11](Week_11) - Modern Concurrency
+
+  
+  
   
 
