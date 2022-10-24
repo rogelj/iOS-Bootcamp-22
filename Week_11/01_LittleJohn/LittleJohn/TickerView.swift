@@ -82,5 +82,10 @@ struct TickerView: View {
         lastErrorMessage = error.localizedDescription
       }
     }
+    .onChange(of: model.tickerSymbols.count) { newValue in
+      if newValue == 0 {
+        presentationMode.wrappedValue.dismiss()
+      }
+    }
   }
 }
