@@ -94,15 +94,20 @@ class SuperStorageModel: ObservableObject {
     await addDownload(name: name)
 
     let result: (downloadStream: URLSession.AsyncBytes, response: URLResponse)
-//    if let offset = offset {
-//      // Add code for Cloud 9 plan
-//    }
-//    else {
+    if let offset = offset {
+      // Add code for Cloud 9 plan
+      let urlRequest = URLRequest(url: url, offset: offset, length: size)
+      result = try await URLSession.shared.bytes(for: urlRequest)
+      guard (result.response as? HTTPURLResponse)?.statusCode == 206 else {
+        throw "The server responded with an error"
+      }
+    }
+    else {
       result = try await URLSession.shared.bytes(from: url)
       guard (result.response as? HTTPURLResponse)?.statusCode == 200 else {
         throw "The server responded with an error."
       }
-//    }
+    }
 
     // Add code here, replacing placeholder return statement
     var asyncDownloadIterator = result.downloadStream.makeAsyncIterator()
@@ -138,7 +143,12 @@ class SuperStorageModel: ObservableObject {
     let parts = (0..<total).map { partInfo(index: $0, of: total) }
 
     // Add code here, replacing placeholder return statement
-    return Data()
+    async let part0 = downloadWithProgress(fileName: file.name, name: parts[0].name, size: parts[0].size, offset: parts[0].offset)
+    async let part1 = downloadWithProgress(fileName: file.name, name: parts[1].name, size: parts[1].size, offset: parts[1].offset)
+    async let part2 = downloadWithProgress(fileName: file.name, name: parts[2].name, size: parts[2].size, offset: parts[2].offset)
+    async let part3 = downloadWithProgress(fileName: file.name, name: parts[3].name, size: parts[3].size, offset: parts[3].offset)
+    return try await [part0, part1, part2, part3]
+      .reduce(Data(), +)
   }
 
   /// Flag that stops ongoing downloads.
