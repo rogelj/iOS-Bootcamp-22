@@ -93,18 +93,32 @@ class SuperStorageModel: ObservableObject {
     await addDownload(name: name)
 
     let result: (downloadStream: URLSession.AsyncBytes, response: URLResponse)
-    if let offset = offset {
-      // Add code for Cloud 9 plan
-    }
-    else {
+//    if let offset = offset {
+//      // Add code for Cloud 9 plan
+//    }
+//    else {
       result = try await URLSession.shared.bytes(from: url)
       guard (result.response as? HTTPURLResponse)?.statusCode == 200 else {
         throw "The server responded with an error."
       }
-    }
+//    }
 
     // Add code here, replacing placeholder return statement
-    return Data()
+    var asyncDownloadIterator = result.downloadStream.makeAsyncIterator()
+    let accumulator = ByteAccumulator(name: name, size: size)
+    while !stopDownloads,
+          !accumulator.checkCompleted() {
+      while !accumulator.isBatchCompleted,
+            let byte = try await asyncDownloadIterator.next() {
+        accumulator.append(byte)
+      }
+      let progress = accumulator.progress
+      Task.detached(priority: .medium) {
+        await self.updateDownload(name: name, progress: progress)
+      }
+      print(accumulator.description)
+    }
+    return accumulator.data
   }
 
   /// Downloads a file using multiple concurrent connections, returns the final content, and updates the download progress
