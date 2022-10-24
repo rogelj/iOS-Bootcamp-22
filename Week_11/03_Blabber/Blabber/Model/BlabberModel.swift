@@ -80,7 +80,7 @@ class BlabberModel: ObservableObject {
     guard
       let query = username.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
       let url = URL(string: "http://localhost:8080/chat/room?\(query)")
-      else {
+    else {
       throw "Invalid username"
     }
 
@@ -99,6 +99,21 @@ class BlabberModel: ObservableObject {
     }
   }
 
+  func observeAppStatus() async {
+    Task {
+      for await _ in await NotificationCenter.default
+        .notifications(for: UIApplication.willResignActiveNotification) {
+        try? await say("\(username) went away", isSystemMessage: true)
+      }
+    }
+    Task {
+      for await _ in await NotificationCenter.default
+        .notifications(for: UIApplication.didBecomeActiveNotification) {
+        try? await say("\(username) came back", isSystemMessage: true)
+      }
+    }
+  }
+
   /// Reads the server chat stream and updates the data model.
   @MainActor
   private func readMessages(stream: URLSession.AsyncBytes) async throws {
@@ -108,21 +123,26 @@ class BlabberModel: ObservableObject {
     }
     guard
       let data = first.data(using: .utf8),
-        let status = try? JSONDecoder()
+      let status = try? JSONDecoder()
         .decode(ServerStatus.self, from: data) else {
-          throw "Invalid response from server"
-        }
+      throw "Invalid response from server"
+    }
     messages.append(
       Message(
         message: "\(status.activeUsers) active users"
       )
     )
 
+    let notifications = Task {
+      await observeAppStatus()
+    }
+    defer { notifications.cancel() }
+
     for try await line in stream.lines {
       if let data = line.data(using: .utf8),
-          let update = try? JSONDecoder().decode(Message.self, from: data) {
-          messages.append(update)
-        }
+         let update = try? JSONDecoder().decode(Message.self, from: data) {
+        messages.append(update)
+      }
     }
   }
 
