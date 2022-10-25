@@ -38,6 +38,7 @@ import UIKit
 class BlabberModel: ObservableObject {
   var username = ""
   var urlSession = URLSession.shared
+  var sleep: (UInt64) async throws -> Void = Task.sleep(nanoseconds: )
 
   init() {
   }
@@ -71,57 +72,59 @@ class BlabberModel: ObservableObject {
     try await say("📍 \(address)")
   }
 
-//  /// Uses push-based AsyncStream to countdown and send the message.
-//  @MainActor
-//  func countdown(to message: String) async throws {
-//    guard !message.isEmpty else { return }
-//    let counter = AsyncStream<String> { continuation in
-//      var countdown = 3
-//      Timer.scheduledTimer(
-//        withTimeInterval: 1.0,
-//        repeats: true
-//      ) { timer in
-//        // DONE: Challenge code
-//          guard countdown > 0 else {
-//            timer.invalidate()
-//            continuation.yield(with: .success("🎉 " + message))
-//            //          continuation.finish()
-//            return
-//        }
-//
-//        continuation.yield("\(countdown) ...")
-//        countdown -= 1
-//      }
-//    }
-//
-//    for await countdownMessage in counter {
-//      try await say(countdownMessage)
-//    }
-//  }
+  //  /// Uses push-based AsyncStream to countdown and send the message.
+  //  @MainActor
+  //  func countdown(to message: String) async throws {
+  //    guard !message.isEmpty else { return }
+  //    let counter = AsyncStream<String> { continuation in
+  //      var countdown = 3
+  //      Timer.scheduledTimer(
+  //        withTimeInterval: 1.0,
+  //        repeats: true
+  //      ) { timer in
+  //        // DONE: Challenge code
+  //          guard countdown > 0 else {
+  //            timer.invalidate()
+  //            continuation.yield(with: .success("🎉 " + message))
+  //            //          continuation.finish()
+  //            return
+  //        }
+  //
+  //        continuation.yield("\(countdown) ...")
+  //        countdown -= 1
+  //      }
+  //    }
+  //
+  //    for await countdownMessage in counter {
+  //      try await say(countdownMessage)
+  //    }
+  //  }
 
   // Uses pull-based AsyncStream to countdown and send the message.
-    func countdown(to message: String) async throws {
-      guard !message.isEmpty else { return }
-  
-      var countdown = 3
-      let counter = AsyncStream<String> {
-        do {
-          try await Task.sleep(nanoseconds: 1_000_000_000)
-        } catch {
-          return nil
-        }
+  func countdown(to message: String) async throws {
+    guard !message.isEmpty else { return }
+
+    let sleep = self.sleep
+    var countdown = 3
+    let counter = AsyncStream<String> {
+      do {
+        //          try await Task.sleep(nanoseconds: 1_000_000_000)
+        try await sleep(1_000_000_000)
         defer { countdown -= 1 }
         switch countdown {
         case (1...): return "\(countdown)..."
         case 0: return "🎉 " + message
         default: return nil
         }
-      }
-  
-      for await countdownMessage in counter {
-        try await say(countdownMessage)
+      } catch {
+        return nil
       }
     }
+
+    for await countdownMessage in counter {
+      try await say(countdownMessage)
+    }
+  }
 
   /// Start live chat updates
   @MainActor
