@@ -32,7 +32,7 @@
 
 import UIKit
 
-actor ImageLoader {
+actor ImageLoader: ObservableObject {
   enum DownloadState {
     case inProgress(Task<UIImage, Error>)
     case completed(UIImage)
