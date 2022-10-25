@@ -54,7 +54,21 @@ class BlabberModel: ObservableObject {
     try await withCheckedThrowingContinuation { [weak self] continuation in
       self?.delegate = ChatLocationDelegate(continuation: continuation)
     }
+    let address: String =
+    try await withCheckedThrowingContinuation { [ weak self ] continuation in
+      AddressEncoder.addressFor(location: location) { address, error in
+        switch (address, error) {
+        case (nil, let error?): continuation.resume(throwing: error)
+        case (let address?, nil): continuation.resume(returning: address)
+        case (nil, nil): continuation.resume(throwing: "Address encoding failed")
+        case let (address?, error?):
+          continuation.resume(returning: address)
+          print(error)
+        }
+      }
+    }
     print(location.description)
+    try await say("📍 \(address)")
   }
 
 //  /// Uses push-based AsyncStream to countdown and send the message.
