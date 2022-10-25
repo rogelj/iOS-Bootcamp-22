@@ -68,37 +68,71 @@ class ScanModel: ObservableObject {
     return result
   }
 
+  //  func runAllTasks() async {
+  //    started = Date()
+  ////    var scans: [String] = []
+  ////    for number in 0..<total {
+  ////      scans.append(try await worker(number: number))
+  ////    }
+  //
+  //
+  //    await withTaskGroup(of: String.self) { [unowned self] group in
+  //      for number in 0..<total {
+  //        group.addTask {
+  //          await self.worker(number: number)
+  //        }
+  //      }
+  //      for await result in group {
+  //        print("Completed: \(result)")
+  //      }
+  //      print("Done.")
+  //    }
+  //  }
+  //}
+
   func runAllTasks() async {
     started = Date()
-//    var scans: [String] = []
-//    for number in 0..<total {
-//      scans.append(try await worker(number: number))
-//    }
-
-
-    await withTaskGroup(of: String.self) { [unowned self] group in
-      for number in 0..<total {
+    await withTaskGroup(of: String.self) { [ unowned self ] group in
+      let batchSize = 4
+      for index in 0..<batchSize {
         group.addTask {
-          await self.worker(number: number)
+          await self.worker(number: index)
         }
+      }
+      var index = batchSize
+      for await result in group {
+        print("Completed: \(result)")
+        if index < total {
+          group.addTask { [index] in
+            await self.worker(number: index)
+          }
+          index += 1
+        }
+      }
+      await MainActor.run {
+        completed = 0
+        countPerSecond = 0
+        scheduled = 0 
       }
     }
   }
 }
 
+
+
 // MARK: - Tracking task progress.
 extension ScanModel {
-  @MainActor
-  private func onTaskCompleted() {
-    completed += 1
-    counted += 1
-    scheduled -= 1
+      @MainActor
+      private func onTaskCompleted() {
+        completed += 1
+        counted += 1
+        scheduled -= 1
 
-    countPerSecond = Double(counted) / Date().timeIntervalSince(started)
-  }
+        countPerSecond = Double(counted) / Date().timeIntervalSince(started)
+      }
 
-  @MainActor
-  private func onScheduled() {
-    scheduled += 1
-  }
+      @MainActor
+      private func onScheduled() {
+        scheduled += 1
+      }
 }
