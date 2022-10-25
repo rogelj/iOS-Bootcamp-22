@@ -42,6 +42,9 @@ struct BottomToolbar: View {
     HStack {
       Button(action: {
         // Clear on-disk cache
+        Task {
+          await ImageDatabase.shared.clear()
+        }
       }, label: {
         Image(systemName: "folder.badge.minus")
       })
@@ -66,6 +69,14 @@ struct BottomToolbar: View {
       guard let memoryAccessSequence = ImageDatabase.shared.imageLoader.inMemoryAccess else { return }
       for await count in memoryAccessSequence {
         inMemoryAccessCount = count
+      }
+    }
+    .task {
+      guard let diskAccessSequence = ImageDatabase.shared.onDiskAccess else {
+        return
+      }
+      for await count in diskAccessSequence {
+        onDiskAccessCount = count
       }
     }
   }
