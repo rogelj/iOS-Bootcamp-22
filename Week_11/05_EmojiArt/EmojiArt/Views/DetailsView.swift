@@ -35,7 +35,7 @@ import SwiftUI
 struct DetailsView: View {
   let file: ImageFile
   @State var image: UIImage?
-  @EnvironmentObject var imageLoader: ImageLoader
+//  @EnvironmentObject var imageLoader: ImageLoader
 
   var body: some View {
     ZStack(alignment: .bottom) {
@@ -64,7 +64,7 @@ struct DetailsView: View {
     .ignoresSafeArea()
     .foregroundColor(.white)
     .task {
-      image = try? await imageLoader.image(file.url)
+      image = try? await ImageDatabase.shared.image(file.url)
     }
   }
 }
