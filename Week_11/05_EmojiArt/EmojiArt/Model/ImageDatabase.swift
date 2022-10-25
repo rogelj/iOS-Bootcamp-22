@@ -35,7 +35,7 @@ import UIKit
 @globalActor actor ImageDatabase {
   static let shared = ImageDatabase()
   let imageLoader = ImageLoader()
-  private let storage: DiskStorage!
+  private var storage: DiskStorage!
   private var storedImagesIndex = Set<String>()
 
   func setUp() async throws {
@@ -71,6 +71,7 @@ import UIKit
       }
       print("In disk cache.")
       await imageLoader.add(image, forKey: key)
+      return image
     } catch {
       let image = try await imageLoader.image(key)
       try await store(image: image, forKey: key)
