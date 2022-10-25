@@ -35,6 +35,15 @@ import CoreLocation
 
 class ChatLocationDelegate: NSObject, CLLocationManagerDelegate {
   private let manager = CLLocationManager()
+  typealias LocationContinuation = CheckedContinuation<CLLocation, Error>
+  private var continuation: LocationContinuation?
+
+  init(continuation: LocationContinuation) {
+    self.continuation = continuation
+    super.init()
+    manager.delegate = self
+    manager.requestWhenInUseAuthorization()
+  }
 
   func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
     switch manager.authorizationStatus {
@@ -43,17 +52,23 @@ class ChatLocationDelegate: NSObject, CLLocationManagerDelegate {
     case .notDetermined:
       break
     default:
-      // TODO: resume continuation instead of break
-      break
+      // DONE: resume continuation instead of break
+      continuation?.resume(
+        throwing: "The app isn't authorized to use location data")
+      continuation = nil
     }
   }
 
   func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     guard let location = locations.first else { return }
-    // TODO: resume continuation
+    // DONE: resume continuation
+    continuation?.resume(returning: location)
+    continuation = nil
   }
 
   func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-    // TODO: resume continuation
+    // DONE: resume continuation
+    continuation?.resume(throwing: error)
+    continuation = nil
   }
 }
