@@ -32,6 +32,10 @@ This repo contains projects and assignments for the Ray Wenderlich iOS Bootcamp 
 
 - [Week 11](Week_11) - Modern Concurrency
 
+- Week 12 - Capstone project round up
+
+- Week 13 - Graduation
+
   
   
   
